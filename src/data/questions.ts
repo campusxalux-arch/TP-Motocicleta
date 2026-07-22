@@ -7,1974 +7,2415 @@ export interface Question {
   id: number;
   question: string;
   options: string[];
-  correctAnswer: number; // 0-indexed (0 to 3)
+  correctAnswer: number; // 0-indexed (0=A, 1=B, 2=C, 3=D)
   category: "Mecánica" | "Situaciones de conducción" | "Infraestructura" | "Normativa vial";
 }
 
 export const QUESTION_BANK: Question[] = [
-  // ==========================================
-  // MÓDULO 1: Mecánica
-  // ==========================================
-  {
-    id: 1,
-    question: "Si al revisar la varilla de medición del aceite del motor nota un color lechoso o espumoso (similar al café con leche), esto indica generalmente que:",
-    options: [
-      "Hay una filtración de líquido refrigerante hacia el sistema de lubricación por daño en el empaque de la culata.",
-      "El aceite ha alcanzado su periodo máximo de vida útil y requiere cambio.",
-      "La viscosidad del aceite es demasiado alta para el clima actual.",
-      "El filtro de aceite se encuentra totalmente obstruido por hollín."
-    ],
-    correctAnswer: 0,
-    category: "Mecánica"
-  },
-  {
-    id: 2,
-    question: "¿Qué componente del sistema eléctrico se encarga de transformar la energía mecánica del motor en energía eléctrica para recargar la batería mientras el vehículo marcha?",
-    options: [
-      "El motor de arranque.",
-      "La bobina de encendido.",
-      "El alternador.",
-      "El distribuidor de corriente."
-    ],
-    correctAnswer: 2,
-    category: "Mecánica"
-  },
-  {
-    id: 3,
-    question: "Cuando el pedal de freno se siente demasiado \"esponjoso\" al pisarlo y el carro tarda más en detenerse, la causa más probable es:",
-    options: [
-      "Desgaste total en los resortes de la suspensión trasera.",
-      "Que las llantas delanteras tienen una presión de inflado muy baja.",
-      "Descalibración en la guaya del freno de estacionamiento.",
-      "Presencia de burbujas de aire o humedad en las líneas del líquido de frenos."
-    ],
-    correctAnswer: 3,
-    category: "Mecánica"
-  },
-  {
-    id: 4,
-    question: "¿Cuál es la función principal del termostato en el sistema de refrigeración de un automóvil?",
-    options: [
-      "Regular el flujo de líquido refrigerante entre el motor y el radiador para mantener la temperatura óptima de operación.",
-      "Encender de forma automática el ventilador eléctrico del radiador.",
-      "Medir la cantidad de anticongelante que queda en el tanque de expansión.",
-      "Enfriar los gases calientes antes de salir por el múltiple de escape."
-    ],
-    correctAnswer: 0,
-    category: "Mecánica"
-  },
-  {
-    id: 5,
-    question: "Si nota que las llantas de su vehículo presentan un desgaste acelerado únicamente en la banda central de la rodadura, esto se debe a:",
-    options: [
-      "Circular habitualmente con una presión de inflado superior a la recomendada por el fabricante.",
-      "Problemas graves de alineación (divergencia excesiva) en el eje delantero.",
-      "Conducir frecuentemente por carreteras con curvas muy pronunciadas.",
-      "Llevar el vehículo con exceso de carga en el baúl de forma continua."
-    ],
-    correctAnswer: 0,
-    category: "Mecánica"
-  },
-  {
-    id: 6,
-    question: "El sistema de suspensión de un automóvil tiene como propósito fundamental:",
-    options: [
-      "Transmitir la potencia del motor directamente a las ruedas motrices.",
-      "Controlar de forma electrónica el bloqueo de las ruedas en frenadas de emergencia.",
-      "Absorber las irregularidades del terreno para garantizar la estabilidad del vehículo y el confort de los ocupantes.",
-      "Mantener las ruedas perfectamente paralelas entre sí durante el frenado."
-    ],
-    correctAnswer: 2,
-    category: "Mecánica"
-  },
-  {
-    id: 7,
-    question: "¿Cada cuánto tiempo o kilometraje se recomienda, por norma general y buenas prácticas preventivas, revisar el nivel de los fluidos del motor (aceite, refrigerante, frenos)?",
-    options: [
-      "Únicamente cada vez que se realice la Revisión Técnico-Mecánica obligatoria.",
-      "Cada 10.000 kilómetros o cuando el vehículo pierda fuerza en pendientes.",
-      "Solamente cuando se encienda algún testigo rojo en el tablero de instrumentos.",
-      "Semanalmente o antes de emprender un viaje largo por carretera."
-    ],
-    correctAnswer: 3,
-    category: "Mecánica"
-  },
-  {
-    id: 8,
-    question: "¿Qué significa que un neumático para carro particular tenga un labrado con una profundidad inferior a 1.6 mm?",
-    options: [
-      "Que la llanta está desgastada más allá del límite legal en Colombia y representa un peligro de hidroplaneo.",
-      "Que la llanta se encuentra en su punto óptimo de adherencia para asfalto seco.",
-      "Que el vehículo consumirá menos combustible debido a la reducción de la fricción.",
-      "Que es necesario realizar un balanceo urgente pero no un cambio de llanta."
-    ],
-    correctAnswer: 0,
-    category: "Mecánica"
-  },
-  {
-    id: 9,
-    question: "La función del embrague o clutch en un vehículo con transmisión mecánica es:",
-    options: [
-      "Multiplicar la fuerza de frenado hidráulico en las ruedas delanteras.",
-      "Regular de manera automática las revoluciones del motor cuando el carro está detenido.",
-      "Conectar y desconectar temporalmente la fuerza del motor hacia la caja de cambios para permitir el cambio de marcha.",
-      "Evitar que el vehículo se ruede hacia atrás al iniciar la marcha en pendientes."
-    ],
-    correctAnswer: 2,
-    category: "Mecánica"
-  },
-  {
-    id: 10,
-    question: "Si por el tubo de escape de un vehículo a gasolina sale humo azul de forma constante, esto es un síntoma claro de:",
-    options: [
-      "Una mezcla de combustión con exceso de gasolina (mezcla rica).",
-      "Presencia de agua en el tanque de combustible o condensación en el escape.",
-      "Falla en el catalizador que impide la correcta filtración de los gases residuales.",
-      "Desgaste en los anillos de los pistones o sellos de válvulas, lo que hace que el motor queme aceite lubricante."
-    ],
-    correctAnswer: 3,
-    category: "Mecánica"
-  },
-  {
-    id: 11,
-    question: "¿Qué componente del motor se encarga de sellar la parte superior de los cilindros evitando fugas de compresión y de fluidos?",
-    options: [
-      "El empaque de la culata.",
-      "El cárter del aceite.",
-      "El bloque de cilindros.",
-      "El retén del cigüeñal."
-    ],
-    correctAnswer: 0,
-    category: "Mecánica"
-  },
-  {
-    id: 12,
-    question: "El líquido de frenos debe cambiarse de forma periódica debido a que:",
-    options: [
-      "Se evapora rápidamente con las altas temperaturas de la fricción.",
-      "Tiende a espesar y obstruir la bomba de vacío.",
-      "Pierde su coloración característica impidiendo revisar el nivel.",
-      "Es un compuesto higroscópico que absorbe humedad del aire, lo que baja su punto de ebullición y genera burbujas."
-    ],
-    correctAnswer: 3,
-    category: "Mecánica"
-  },
-  {
-    id: 13,
-    question: "¿Qué consecuencia grave puede traer para el motor circular con un nivel de aceite lubricante por debajo del mínimo recomendado?",
-    options: [
-      "Fricción excesiva entre las piezas móviles internas que puede derivar en que el motor se funda.",
-      "Rotura instantánea de la correa de distribución.",
-      "Cortocircuito en el motor de arranque por sobrecarga eléctrica.",
-      "Perforación inmediata del radiador por alta temperatura."
-    ],
-    correctAnswer: 0,
-    category: "Mecánica"
-  },
-  {
-    id: 14,
-    question: "En los vehículos modernos, el sistema ABS (Anti-lock Braking System) tiene como función principal:",
-    options: [
-      "Detener el vehículo en una distancia menor de manera instantánea.",
-      "Aumentar la potencia de frenado hidráulico mediante el uso del vacío.",
-      "Evitar el bloqueo de las ruedas durante un frenado de emergencia para mantener el control direccional del vehículo.",
-      "Activar de manera automática las luces de estacionamiento traseras."
-    ],
-    correctAnswer: 2,
-    category: "Mecánica"
-  },
-  {
-    id: 15,
-    question: "El radiador forma parte esencial del sistema de:",
-    options: [
-      "Alimentación de combustible.",
-      "Escape y filtración de gases.",
-      "Dirección asistida.",
-      "Refrigeración del motor."
-    ],
-    correctAnswer: 3,
-    category: "Mecánica"
-  },
-  {
-    id: 16,
-    question: "Si nota una vibración fuerte en el volante al alcanzar velocidades superiores a 80 km/h, la acción preventiva correcta es:",
-    options: [
-      "Realizar un balanceo de las ruedas del vehículo.",
-      "Cambiar inmediatamente los amortiguadores delanteros.",
-      "Efectuar una alineación del eje trasero.",
-      "Rellenar el depósito del líquido de la dirección."
-    ],
-    correctAnswer: 0,
-    category: "Mecánica"
-  },
-  {
-    id: 17,
-    question: "¿Por qué no se debe utilizar agua corriente para rellenar de forma constante el depósito de refrigeración del motor?",
-    options: [
-      "Porque el agua corriente se evapora inmediatamente sin absorber nada de calor.",
-      "Porque genera óxido, sedimentos calcáreos que obstruyen los conductos y carece de propiedades anticongelantes/anti-ebullición.",
-      "Porque aumenta drásticamente el consumo de combustible del alternador.",
-      "Porque puede derretir las mangueras de caucho del sistema debido a su acidez."
-    ],
-    correctAnswer: 1,
-    category: "Mecánica"
-  },
-  {
-    id: 18,
-    question: "¿Qué elemento del sistema de escape se encarga de reducir la toxicidad de los gases resultantes de la combustión?",
-    options: [
-      "El múltiple de admisión.",
-      "El silenciador trasero.",
-      "El sensor de oxígeno primario.",
-      "El convertidor catalítico."
-    ],
-    correctAnswer: 3,
-    category: "Mecánica"
-  },
-  {
-    id: 19,
-    question: "El cárter es una pieza metálica situada en la parte inferior del bloque del motor que sirve para:",
-    options: [
-      "Almacenar el aceite lubricante del motor y permitir su enfriamiento pasivo.",
-      "Proteger la caja de cambios contra golpes directos del suelo.",
-      "Soportar los cilindros del motor evitando fugas térmicas.",
-      "Filtrar las impurezas gruesas presentes en el aire exterior."
-    ],
-    correctAnswer: 0,
-    category: "Mecánica"
-  },
-  {
-    id: 20,
-    question: "¿Qué se conoce técnicamente como la correa de distribución en un motor?",
-    options: [
-      "La correa que conecta el cigüeñal con el alternador y el compresor de aire.",
-      "El cableado de alta tensión que suministra chispa a las bujías.",
-      "La correa que sincroniza el movimiento del cigüeñal con el eje de levas para regular la apertura de válvulas.",
-      "El mecanismo hidráulico encargado de accionar la caja de velocidades."
-    ],
-    correctAnswer: 2,
-    category: "Mecánica"
-  },
-  {
-    id: 21,
-    question: "Si al aplicar los frenos del vehículo escucha un chirrido metálico agudo constante, esto indica por lo general:",
-    options: [
-      "Que las pastillas de freno están desgastadas y el indicador de desgaste roza con el disco metálico.",
-      "Que el pedal del freno requiere lubricación con grasa mineral.",
-      "Que los discos de freno están excesivamente calientes por el clima.",
-      "Que hay una fuga masiva de presión en la bomba auxiliar."
-    ],
-    correctAnswer: 0,
-    category: "Mecánica"
-  },
-  {
-    id: 22,
-    question: "¿Cuál es el propósito del convertidor de par en un vehículo con transmisión automática?",
-    options: [
-      "Sincronizar mecánicamente los piñones de la primera y segunda marcha.",
-      "Acoplar de manera hidráulica la potencia del motor con la caja de transmisión, reemplazando al embrague manual.",
-      "Distribuir la fuerza de frenado entre el eje delantero y trasero de manera autónoma.",
-      "Regular la salida de corriente alterna del sistema eléctrico central."
-    ],
-    correctAnswer: 1,
-    category: "Mecánica"
-  },
-  {
-    id: 23,
-    question: "La dirección asistida del vehículo tiene como finalidad principal:",
-    options: [
-      "Reducir el esfuerzo físico que realiza el conductor sobre el volante al maniobrar a bajas velocidades o estacionar.",
-      "Bloquear la dirección de manera automática cuando el vehículo se apaga.",
-      "Alinear por sí sola la trayectoria del automóvil en carreteras rectas.",
-      "Evitar que las llantas delanteras patinen al acelerar bruscamente en mojado."
-    ],
-    correctAnswer: 0,
-    category: "Mecánica"
-  },
-  {
-    id: 24,
-    question: "Si nota que el motor se apaga repentinamente al detenerse en un semáforo (marcha mínima o ralentí), la causa puede ser:",
-    options: [
-      "Una falla en el alternador que sobrecarga el acumulador de energía.",
-      "Falta de presión de inflado en las ruedas motrices delanteras.",
-      "Desgaste prematuro en los resortes de las pastillas de freno.",
-      "Obstrucción en la válvula IAC (válvula de control de ralentí) o filtro de aire muy sucio."
-    ],
-    correctAnswer: 3,
-    category: "Mecánica"
-  },
-  {
-    id: 25,
-    question: "¿Qué componente une el volante de dirección con la caja de engranajes de la dirección?",
-    options: [
-      "La rótula de dirección delantera.",
-      "El brazo de acoplamiento de suspensión.",
-      "La columna de dirección.",
-      "La barra estabilizadora."
-    ],
-    correctAnswer: 2,
-    category: "Mecánica"
-  },
-  {
-    id: 26,
-    question: "El fenómeno conocido como aquaplaning o hidroplaneo se produce debido a:",
-    options: [
-      "La acumulación de una película de agua entre el neumático y la carretera, provocando la pérdida total de tracción y control.",
-      "Una presión excesiva de frenado sobre pavimentos totalmente secos.",
-      "La filtración de agua dentro del cárter de aceite del motor.",
-      "El recalentamiento repentino de los neumáticos por circular en clima húmedo."
-    ],
-    correctAnswer: 0,
-    category: "Mecánica"
-  },
-  {
-    id: 27,
-    question: "¿Qué función cumplen los amortiguadores en el sistema de suspensión de un automóvil?",
-    options: [
-      "Alinear la posición de los neumáticos con respecto al eje direccional.",
-      "Mantener la altura constante del chasis en superficies irregulares.",
-      "Soportar todo el peso dinámico del motor y de la cabina.",
-      "Controlar y disipar las oscilaciones de los resortes o espirales para mantener las ruedas pegadas al asfalto."
-    ],
-    correctAnswer: 3,
-    category: "Mecánica"
-  },
-  {
-    id: 28,
-    question: "En un envase de aceite de motor, las siglas SAE (Society of Automotive Engineers) seguidas de una nomenclatura como \"10W-40\" indican:",
-    options: [
-      "La clasificación de la viscosidad del aceite y su comportamiento frente al cambio de temperatura.",
-      "La procedencia sintética o mineral del lubricante sellado.",
-      "El número máximo de revoluciones permitidas para ese lubricante.",
-      "La fecha de vencimiento y de envasado seguro del producto."
-    ],
-    correctAnswer: 0,
-    category: "Mecánica"
-  },
-  {
-    id: 29,
-    question: "El componente mecánico encargado de transmitir el giro del motor a las ruedas en un vehículo de tracción trasera se conoce como:",
-    options: [
-      "Barra de torsión delantera.",
-      "Semieje direccional.",
-      "Caja de transferencia lateral.",
-      "Cardán."
-    ],
-    correctAnswer: 3,
-    category: "Mecánica"
-  },
-  {
-    id: 30,
-    question: "¿Qué se debe hacer de inmediato si el testigo indicador de temperatura del motor en el tablero se enciende en la zona roja?",
-    options: [
-      "Detener el vehículo de forma segura en un lugar nivelado, apagar el motor y esperar a que se enfríe de forma natural antes de revisar.",
-      "Abrir inmediatamente la tapa del radiador para agregar agua fría con el motor aún caliente.",
-      "Acelerar a fondo para forzar el paso de aire frío por el ventilador.",
-      "Continuar conduciendo lentamente hasta llegar al taller mecánico más cercano."
-    ],
-    correctAnswer: 0,
-    category: "Mecánica"
-  },
-  {
-    id: 31,
-    question: "El filtro de combustible tiene como función esencial:",
-    options: [
-      "Evitar que los vapores tóxicos de gasolina ingresen a la cabina.",
-      "Regular de manera autónoma la mezcla de aire y combustible del sistema.",
-      "Aumentar el octanaje del combustible antes de la inyección.",
-      "Retener impurezas, partículas sólidas y agua presentes en el combustible para proteger la bomba e inyectores."
-    ],
-    correctAnswer: 3,
-    category: "Mecánica"
-  },
-  {
-    id: 32,
-    question: "Si un vehículo cuenta con \"tracción delantera\", esto significa que:",
-    options: [
-      "La fuerza motriz generada por el motor se transmite directamente a las ruedas del eje delantero.",
-      "La fuerza del motor se transmite por igual a las cuatro ruedas permanentemente.",
-      "El vehículo es más inestable al tomar curvas pronunciadas en mojado.",
-      "La dirección del auto se controla mediante el eje trasero."
-    ],
-    correctAnswer: 0,
-    category: "Mecánica"
-  },
-  {
-    id: 33,
-    question: "¿Qué parte del motor aloja los pistones, cilindros, bielas y cigüeñal?",
-    options: [
-      "El bloque de cilindros.",
-      "La culata o cabezote.",
-      "El distribuidor principal.",
-      "El cárter de aceite primario."
-    ],
-    correctAnswer: 0,
-    category: "Mecánica"
-  },
-  {
-    id: 34,
-    question: "El servo freno es un componente que aprovecha la fuerza del vacío para:",
-    options: [
-      "Hacer girar la bomba de dirección de manera uniforme.",
-      "Mantener las pastillas de freno en su posición de reposo.",
-      "Regular de manera electrónica los sensores de velocidad ABS.",
-      "Multiplicar el esfuerzo del conductor sobre el pedal de freno para lograr una frenada más suave y potente."
-    ],
-    correctAnswer: 3,
-    category: "Mecánica"
-  },
-  {
-    id: 35,
-    question: "¿Qué tipo de desgaste genera una mala alineación de las ruedas delanteras en las llantas?",
-    options: [
-      "Un desgaste excesivo e irregular en los hombros o bordes (interno o externo) de la llanta.",
-      "Un desgaste severo en el centro exacto de la banda de rodamiento.",
-      "Desgastes aislados en forma de parches o zonas planas a lo largo de la llanta.",
-      "Ningún desgaste físico apreciable si se mantienen las llantas bien infladas."
-    ],
-    correctAnswer: 0,
-    category: "Mecánica"
-  },
-  {
-    id: 36,
-    question: "Si los bornes de la batería de su vehículo se encuentran sulfatados (cubiertos de sarro blanco o verdoso), la consecuencia es:",
-    options: [
-      "Un incremento injustificado en el desgaste mecánico de las bujías.",
-      "Un recalentamiento severo en el sistema de escape interno.",
-      "El derretimiento del fusible del motor de arranque.",
-      "Una mala conducción de la corriente eléctrica que puede impedir que el auto encienda o descargue la batería."
-    ],
-    correctAnswer: 3,
-    category: "Mecánica"
-  },
-  {
-    id: 37,
-    question: "El eje de levas es un componente del motor responsable de:",
-    options: [
-      "Controlar la apertura y el cierre preciso de las válvulas de admisión y escape.",
-      "Convertir el movimiento lineal de los pistones en movimiento rotatorio continuo.",
-      "Transferir el giro del cigüeñal hacia la correa de accesorios.",
-      "Transmitir la chispa de encendido de forma uniforme a cada cilindro."
-    ],
-    correctAnswer: 0,
-    category: "Mecánica"
-  },
-  {
-    id: 38,
-    question: "¿Qué sistema del carro se encarga de acoplar y desacoplar de manera suave la transmisión de fuerza entre el motor y las ruedas?",
-    options: [
-      "El sistema de frenos asistido.",
-      "El sistema de embrague (clutch) o convertidor hidráulico.",
-      "El sistema de escape catalizado.",
-      "El sistema de dirección de cremallera."
-    ],
-    correctAnswer: 1,
-    category: "Mecánica"
-  },
-  {
-    id: 39,
-    question: "El freno de estacionamiento (o freno de mano) actúa mecánicamente sobre:",
-    options: [
-      "Las cuatro ruedas del automóvil simultáneamente por presión hidráulica.",
-      "La caja de velocidades para bloquear la salida del diferencial.",
-      "El eje de transmisión longitudinal para evitar giros mecánicos.",
-      "Las ruedas del eje trasero de forma mecánica e independiente del sistema hidráulico del pedal."
-    ],
-    correctAnswer: 3,
-    category: "Mecánica"
-  },
-  {
-    id: 40,
-    question: "Si el testigo con el símbolo de una aceitera se enciende en color rojo en el tablero mientras conduce, esto significa:",
-    options: [
-      "Que el aceite ha alcanzado la temperatura óptima de operación.",
-      "Falta de presión de aceite lubricante en el motor, por lo que debe detenerse de inmediato.",
-      "Que debe realizar la alineación y el balanceo preventivo del vehículo.",
-      "Que hay presencia de sedimentos gruesos en el filtro de gasolina principal."
-    ],
-    correctAnswer: 1,
-    category: "Mecánica"
-  },
-  {
-    id: 41,
-    question: "Los frenos de disco detienen el movimiento de la rueda mediante:",
-    options: [
-      "La fricción generada al presionar unas pastillas contra un disco metálico que gira solidario con la rueda.",
-      "El ensanchamiento de unas zapatas contra un tambor giratorio interno.",
-      "El bloqueo electromecánico directo del árbol del cigüeñal del motor.",
-      "La aplicación directa de presión neumática sobre la banda de rodamiento del neumático."
-    ],
-    correctAnswer: 0,
-    category: "Mecánica"
-  },
-  {
-    id: 42,
-    question: "¿Por qué es fundamental cambiar periódicamente el filtro de aire del motor?",
-    options: [
-      "Para garantizar el flujo constante de aire limpio a la cámara de combustión, previniendo el desgaste prematuro de cilindros y un consumo elevado.",
-      "Para evitar que la cabina de pasajeros se inunde con partículas contaminantes de hollín.",
-      "Para mantener la presión constante dentro del alternador eléctrico principal.",
-      "Para regular la presión interna de los neumáticos motrices delanteros."
-    ],
-    correctAnswer: 0,
-    category: "Mecánica"
-  },
-  {
-    id: 43,
-    question: "Los elementos encargados de transferir la fuerza de torsión desde el diferencial hacia las ruedas delanteras en vehículos con tracción delantera se denominan:",
-    options: [
-      "Horquillas superiores de suspensión.",
-      "Barras tensoras cruzadas.",
-      "Amortiguadores telescópicos dobles.",
-      "Semiejes (o juntas homocinéticas)."
-    ],
-    correctAnswer: 3,
-    category: "Mecánica"
-  },
-  {
-    id: 44,
-    question: "En la geometría de la suspensión, el ángulo de inclinación vertical de las ruedas con respecto a una línea perpendicular al suelo se conoce como:",
-    options: [
-      "Caster (avance).",
-      "Convergencia.",
-      "Divergencia.",
-      "Cámber (caída de rueda)."
-    ],
-    correctAnswer: 3,
-    category: "Mecánica"
-  },
-  {
-    id: 45,
-    question: "¿Cuál es el propósito del múltiple de escape de un vehículo a motor?",
-    options: [
-      "Inyectar una cantidad controlada de aire comprimido a los pistones.",
-      "Recolectar los gases quemados salientes de las válvulas de los cilindros y conducirlos en un solo tubo hacia el silenciador.",
-      "Filtrar las impurezas químicas y partículas sólidas del combustible fósil.",
-      "Enfriar el refrigerante recirculado desde el cárter primario."
-    ],
-    correctAnswer: 1,
-    category: "Mecánica"
-  },
-  {
-    id: 46,
-    question: "Las siglas DOT impresas en los recipientes de líquido de frenos (ejemplo: DOT 3, DOT 4) hacen referencia a:",
-    options: [
-      "La dosificación recomendada de aditivos por galón de combustible.",
-      "La dureza física del compuesto de las pastillas del sistema de freno.",
-      "La densidad de sellado del empaque del cilindro principal.",
-      "El punto de ebullición del fluido certificado por el Departamento de Transporte."
-    ],
-    correctAnswer: 3,
-    category: "Mecánica"
-  },
-  {
-    id: 47,
-    question: "Si al soltar el pedal del embrague (clutch) nota que el carro tarda mucho en arrancar y revoluciona en vacío, se dice comúnmente que:",
-    options: [
-      "El embrague está patinando por desgaste grave en las caras de fricción de su disco.",
-      "El líquido hidráulico de frenos de disco está contaminado por humedad.",
-      "La dirección asistida del auto está descalibrada de manera electrónica.",
-      "Los bornes de conexión rápida de la batería están sueltos o sulfatados."
-    ],
-    correctAnswer: 0,
-    category: "Mecánica"
-  },
-  {
-    id: 48,
-    question: "La bomba de agua del sistema de refrigeración del motor cumple la función de:",
-    options: [
-      "Impulsar la circulación constante del refrigerante a través de todo el motor para mantener una temperatura uniforme y segura.",
-      "Suministrar agua líquida a presión para el lavado de los faros de luces delanteras.",
-      "Inyectar vapor de agua condensado a la cámara de combustión del motor.",
-      "Separar las moléculas de agua mineralizada presentes en el tanque de combustible."
-    ],
-    correctAnswer: 0,
-    category: "Mecánica"
-  },
-  {
-    id: 49,
-    question: "¿Qué característica principal diferencia a los neumáticos sin cámara o sellomáticos (tubeless) de los neumáticos tradicionales?",
-    options: [
-      "No requieren una presión de inflado mínima o un balanceo regular.",
-      "Están hechos de un caucho sintético totalmente inmune al desgaste natural.",
-      "Se inflan exclusivamente con gases inertes purificados de nitrógeno.",
-      "Tienen una capa interna de goma autosellante que elimina el uso de un neumático de caucho interior suelto."
-    ],
-    correctAnswer: 3,
-    category: "Mecánica"
-  },
-  {
-    id: 50,
-    question: "Está strictly prohibido por razones de seguridad técnica descender una pendiente prolongada con la caja de velocidades en neutro debido a:",
-    options: [
-      "La pérdida del freno de motor que obliga a abusar de los frenos de servicio, lo que genera recalentamiento y posible fallo total.",
-      "El incremento incontrolado de consumo de gasolina por el ralentí del alternador.",
-      "La detención instantánea de la lubricación pasiva de la caja de velocidades.",
-      "El desgaste severo e irreversible de las juntas homocinéticas de la dirección."
-    ],
-    correctAnswer: 0,
-    category: "Mecánica"
-  },
-  {
-    id: 51,
-    question: "Si el testigo con el símbolo de una batería se enciende en color rojo mientras el auto marcha, esto indica directamente:",
-    options: [
-      "Que el alternador no está generando suficiente carga para alimentar el sistema y recargar el acumulador.",
-      "Que el líquido electrolito del acumulador se ha evaporado por completo.",
-      "Que hay un cortocircuito activo en la computadora central del motor.",
-      "Que la vida útil de las celdas de litio de la batería ha llegado a su límite."
-    ],
-    correctAnswer: 0,
-    category: "Mecánica"
-  },
-  {
-    id: 52,
-    question: "¿Qué filtro es el responsable directo de evitar que las impurezas y partículas sólidas suspendidas en el aire ingresen a la cámara de combustión del motor?",
-    options: [
-      "El filtro de aceite primario.",
-      "El filtro de combustible sellado.",
-      "El filtro de aire de motor.",
-      "El filtro del aire acondicionado de cabina."
-    ],
-    correctAnswer: 2,
-    category: "Mecánica"
-  },
-  {
-    id: 53,
-    question: "Un desgaste irregular de las llantas en forma de \"escalones\" o marcas planas continuas a lo largo de la banda de rodamiento suele ser causado por:",
-    options: [
-      "Amortiguadores defectuosos u otros componentes de la suspensión dañados que hacen rebotar la rueda.",
-      "Problemas constantes de baja presión de inflado en las ruedas del eje trasero.",
-      "Conducir continuamente a velocidades por encima de los límites legales permitidos.",
-      "Usar llantas que no han sido balanceadas dinámicamente en un taller certificado."
-    ],
-    correctAnswer: 0,
-    category: "Mecánica"
-  },
-  {
-    id: 54,
-    question: "El componente del sistema de encendido encargado de elevar la baja tensión de la batería para generar la chispa en la cámara de combustión se denomina:",
-    options: [
-      "El alternador principal.",
-      "El acumulador eléctrico central.",
-      "El interruptor del cigüeñal.",
-      "La bobina de encendido."
-    ],
-    correctAnswer: 3,
-    category: "Mecánica"
-  },
-
-  // ==========================================
-  // MÓDULO 2: Situaciones de conducción
-  // ==========================================
-  {
-    id: 55,
-    question: "Si usted conduce en carretera y observa que el vehículo que va adelante enciende sus luces estacionarias (de emergencia), la conducta correcta es:",
-    options: [
-      "Disminuir la velocidad de manera progresiva y mantener una distancia de seguridad prudente ante una posible detención o riesgo inminente.",
-      "Aumentar inmediatamente la marcha para adelantar al vehículo antes de que se detenga por completo.",
-      "Utilizar la bocina o pito de forma insistente para exigir que continúe su marcha normal.",
-      "Encender de igual manera sus luces estacionarias y orillarse sin disminuir la velocidad."
-    ],
-    correctAnswer: 0,
-    category: "Situaciones de conducción"
-  },
-  {
-    id: 57,
-    question: "Al conducir de noche bajo una lluvia intensa o niebla espesa, la iluminación más eficaz para la visibilidad general y de seguridad es:",
-    options: [
-      "Mantener únicamente las luces de cruce encendidas e incrementar la velocidad constante.",
-      "Encender los faros de luces de carretera (luces altas) para iluminar a gran distancia.",
-      "Apagar los faros de luces bajas y avanzar guiándose por los reflectores de la vía.",
-      "Utilizar las luces de cruce (luces bajas) acompañadas de los faros antiniebla si el vehículo dispone de ellos, evitando deslumbramientos."
-    ],
-    correctAnswer: 3,
-    category: "Situaciones de conducción"
-  },
-  {
-    id: 59,
-    question: "¿En qué consiste la denominada \"distancia de reacción\" durante la conducción de un vehículo?",
-    options: [
-      "El espacio que recorre el automóvil desde que el conductor detiene el motor hasta el frenado completo.",
-      "La distancia que avanza el auto desde que el conductor percibe el peligro u obstáculo hasta que pisa el pedal de freno.",
-      "El tramo de vía que recorre el vehículo una vez que los frenos ya han bloqueado las llantas motrices.",
-      "La distancia física que debe mantener de forma obligatoria con respecto al vehículo delantero."
-    ],
-    correctAnswer: 1,
-    category: "Situaciones de conducción"
-  },
-  {
-    id: 60,
-    question: "Si la parte trasera de su automóvil derrapa (pierde tracción) hacia la derecha sobre una calzada mojada, ¿cómo debe actuar sobre el volante?",
-    options: [
-      "Girar el volante suave y progresivamente hacia el mismo lado del derrape (hacia la derecha) y evitar frenar bruscamente.",
-      "Aplicar el freno de mano de inmediato para enderezar la trayectoria del chasis.",
-      "Girar el volante con fuerza y rapidez hacia la izquierda para contrarrestar el desvío.",
-      "Pisar el embrague y el acelerador al mismo tiempo para recuperar la velocidad motriz."
-    ],
-    correctAnswer: 0,
-    category: "Situaciones de conducción"
-  },
-  {
-    id: 61,
-    question: "Ante la presencia de un peatón invidente (que utiliza bastón blanco o va acompañado de un perro guía), ¿cómo debe reaccionar el conductor?",
-    options: [
-      "Usar de forma constante la bocina para indicarle de manera rápida que debe apartarse de la vía.",
-      "Hacer cambios repetitivos de luces altas y bajas para captar su atención en el cruce.",
-      "Detener completamente el vehículo de forma oportuna para permitirle cruzar la calzada de manera segura.",
-      "Continuar con la marcha normal esquivándolo por el carril opuesto de manera progresiva."
-    ],
-    correctAnswer: 2,
-    category: "Situaciones de conducción"
-  },
-  {
-    id: 63,
-    question: "Si se ve obligado por una emergencia o falla técnica a detener el vehículo a un costado de una carretera nacional de noche, debe:",
-    options: [
-      "Encender las luces de estacionamiento y colocar los dispositivos de señalización (triángulos o conos) a las distancias reglamentarias.",
-      "Apagar todas las luces del vehículo para ahorrar energía y evitar descargar la batería.",
-      "Colocar los triángulos de señalización encima del capó y del techo del carro.",
-      "Permanecer dentro del vehículo con las puertas abiertas esperando auxilio vial pasivo."
-    ],
-    correctAnswer: 0,
-    category: "Situaciones de conducción"
-  },
-  {
-    id: 64,
-    question: "En el protocolo internacional PAS para la atención de accidentes de tránsito en la vía, las siglas representan la secuencia correcta de:",
-    options: [
-      "Parar el vehículo, Advertir al tránsito trasero, Socorrer a las víctimas heridas.",
-      "Prevenir nuevos choques, Auxiliar de inmediato, Sancionar al responsable legal.",
-      "Pedir ayuda médica, Avisar a las autoridades viales, Salvar las pertenencias materiales.",
-      "Proteger el lugar del accidente, Avisar a los servicios de emergencia, Socorrer a los lesionados."
-    ],
-    correctAnswer: 3,
-    category: "Situaciones de conducción"
-  },
-  {
-    id: 65,
-    question: "El fenómeno del \"microsueño\" al conducir se caracteriza principalmente por:",
-    options: [
-      "Pérdidas de atención de apenas unos segundos durante las cuales el conductor viaja dormido sin percibir el entorno ni el rumbo.",
-      "Un estado continuo de pesadez que solo afecta la velocidad de reacción muscular.",
-      "Pérdida de la visión periférica debido al cansancio físico extremo.",
-      "Un síntoma propio únicamente de personas con problemas crónicos de insomnio."
-    ],
-    correctAnswer: 0,
-    category: "Situaciones de conducción"
-  },
-  {
-    id: 66,
-    question: "El consumo de bebidas alcohólicas, incluso en dosis mínimas inferiores a las sancionadas penalmente:",
-    options: [
-      "Afecta únicamente la percepción visual de noche sin alterar la toma de decisiones.",
-      "Ayuda a relajar la tensión muscular disminuyendo la fatiga física del conductor.",
-      "Aumenta la distancia de reacción, reduce el campo de visión (efecto túnel) y disminuye de forma grave la precisión de maniobra.",
-      "No altera las capacidades psicomotoras del conductor si se consumen alimentos antes de marchar."
-    ],
-    correctAnswer: 2,
-    category: "Situaciones de conducción"
-  },
-  {
-    id: 70,
-    question: "En la conducción de un automóvil, se conoce técnicamente como el \"punto ciego\" a:",
-    options: [
-      "Una zona muerta en la parte delantera baja que impide ver obstáculos pequeños.",
-      "Aquellas áreas alrededor del vehículo que no pueden ser observadas de forma directa mediante el uso de los espejos retrovisores.",
-      "El espacio de vía situado directamente detrás del vehículo de carga pesado.",
-      "La pérdida momentánea de visibilidad por deslumbramiento de luces altas contrarias."
-    ],
-    correctAnswer: 1,
-    category: "Situaciones de conducción"
-  },
-  {
-    id: 71,
-    question: "Si transita detrás de un camión de gran tamaño en una carretera de un solo carril, debe aumentar la distancia de seguimiento debido a:",
-    options: [
-      "Que el camión tiene una aceleración media muy superior en pendientes pronunciadas.",
-      "Evitar que la carga transportada golpee directamente el parabrisas del auto.",
-      "Poder adelantarlo de forma rápida sin utilizar el carril de sentido contrario.",
-      "Mejorar su propio campo de visión hacia adelante y evitar los puntos ciegos del conductor del camión."
-    ],
-    correctAnswer: 3,
-    category: "Situaciones de conducción"
-  },
-  {
-    id: 72,
-    question: "El peligro principal de circular con una presión de inflado en los neumáticos inferior a la recomendada por el fabricante es:",
-    options: [
-      "Aumento en el riesgo de sufrir un reventón del neumático por deformación térmica excesiva de los flancos y pérdida de control.",
-      "Un incremento inmediato en las emisiones tóxicas del catalizador de escape.",
-      "Que el sistema hidráulico de frenado ABS sufra descalibración grave.",
-      "La pérdida total de lubricación en las juntas de la columna de dirección."
-    ],
-    correctAnswer: 0,
-    category: "Situaciones de conducción"
-  },
-  {
-    id: 73,
-    question: "Cuando se conduce con fatiga, el comportamiento del conductor suele verse afectado por:",
-    options: [
-      "Un aumento en la capacidad física de reacción muscular en curvas.",
-      "La reducción voluntaria de la velocidad de marcha para mayor seguridad.",
-      "Un incremento de las conductas de distracción, somnolencia, irritabilidad y pérdida del sentido de la orientación.",
-      "Una mejor visibilidad lateral en condiciones adversas de clima."
-    ],
-    correctAnswer: 2,
-    category: "Situaciones de conducción"
-  },
-  {
-    id: 75,
-    question: "¿Cuál es la función del apoyacabezas instalado en el respaldo de los asientos del vehículo?",
-    options: [
-      "Brindar comodidad ergonómica exclusiva en viajes de larga distancia.",
-      "Aumentar el soporte lumbar de la columna durante aceleraciones bruscas.",
-      "Prevenir lesiones cervicales graves (efecto latigazo) en caso de sufrir una colisión o impacto trasero.",
-      "Sujetar la cabeza del conductor en maniobras de giros pronunciados."
-    ],
-    correctAnswer: 2,
-    category: "Situaciones de conducción"
-  },
-  {
-    id: 76,
-    question: "El uso prolongado del embrague (mantener pisado el pedal del clutch) en un descenso largo genera:",
-    options: [
-      "Un calentamiento excesivo en las mangueras hidráulicas delanteras.",
-      "Fuga rápida de compresión mecánica por las válvulas de admisión.",
-      "Mayor estabilidad en la trayectoria direccional del chasis trasero.",
-      "Desgaste innecesario y prematuro del mecanismo interno de embrague y pérdida de control del frenado por motor."
-    ],
-    correctAnswer: 3,
-    category: "Situaciones de conducción"
-  },
-  {
-    id: 77,
-    question: "Ante la pérdida total de frenos hidráulicos en plena marcha de un carro mecánico, la conducta más segura consiste en:",
-    options: [
-      "Apagar el motor de inmediato y retirar la llave para bloquear la dirección.",
-      "Colocar la caja en neutro y aplicar el freno de mano de manera violenta.",
-      "Disminuir la velocidad de manera escalonada bajando marchas de la caja de cambios (freno de motor) y aplicar suavemente el freno de mano al final.",
-      "Lanzar el vehículo hacia la berma lateral sin frenar para que se detenga por fricción."
-    ],
-    correctAnswer: 2,
-    category: "Situaciones de conducción"
-  },
-  {
-    id: 78,
-    question: "La \"visión de túnel\", que consiste en la reducción drástica del campo visual lateral, es provocada habitualmente por:",
-    options: [
-      "Conducir de manera constante bajo las horas de mayor radiación solar.",
-      "Una alineación deficiente de los faros halógenos delanteros.",
-      "El consumo de sustancias psicoactivas, el alcohol y la conducción a velocidades muy elevadas.",
-      "Tener los espejos retrovisores laterales descalibrados hacia adentro."
-    ],
-    correctAnswer: 2,
-    category: "Situaciones de conducción"
-  },
-  {
-    id: 79,
-    question: "Para realizar un adelantamiento seguro en una vía de doble sentido de circulación, ¿qué señalización es obligatoria?",
-    options: [
-      "Usar de forma intermitente la bocina para alertar al auto delantero.",
-      "Efectuar cambios de luces altas y bajas de manera continua.",
-      "Girar bruscamente la dirección para sorprender al flujo vehicular opuesto.",
-      "Activar la luz direccional izquierda con anticipación, verificar retrovisores y realizar la maniobra en zona permitida con línea discontinua."
-    ],
-    correctAnswer: 3,
-    category: "Situaciones de conducción"
-  },
-  {
-    id: 81,
-    question: "En conducción, se define como \"distancia de parada\" a la suma de:",
-    options: [
-      "La distancia de frenado y la longitud total del chasis del vehículo.",
-      "La distancia recorrida en ralentí y el espacio de frenado auxiliar.",
-      "La distancia de reacción del conductor más la distancia de frenado mecánico del vehículo.",
-      "La distancia con respecto al vehículo trasero más el espacio de seguridad delantero."
-    ],
-    correctAnswer: 2,
-    category: "Situaciones de conducción"
-  },
-  {
-    id: 82,
-    question: "¿Cuál es la principal función de los sistemas de seguridad activa instalados en un automóvil?",
-    options: [
-      "Minimizar la gravedad de las lesiones de los ocupantes una vez ocurrido el impacto.",
-      "Facilitar la comodidad térmica y auditiva de las personas a bordo.",
-      "Evitar de manera proactiva que se produzca un accidente de tránsito en condiciones adversas.",
-      "Registrar de forma continua la velocidad y el historial de viajes del auto."
-    ],
-    correctAnswer: 2,
-    category: "Situaciones de conducción"
-  },
-  {
-    id: 83,
-    question: "Al realizar una maniobra de retroceso (dar reversa) con el vehículo, la velocidad y distancia máximas permitidas son:",
-    options: [
-      "Exclusivamente a velocidad mínima por estricta necesidad de maniobra o estacionamiento, sin superar los límites físicos de seguridad.",
-      "Hasta 50 metros en zonas urbanas manteniendo luces de emergencia encendidas.",
-      "Acelerando de forma constante para evitar bloquear el tráfico de la calzada.",
-      "Únicamente bajo supervisión expresa de un agente de tránsito o auxiliar de vía."
-    ],
-    correctAnswer: 0,
-    category: "Situaciones de conducción"
-  },
-  {
-    id: 85,
-    question: "¿Cómo influye circular a velocidades elevadas sobre el campo visual útil del conductor?",
-    options: [
-      "No tiene ninguna influencia medible sobre la capacidad de ver a los costados.",
-      "Aumenta la capacidad de captación visual de señales de tránsito a corta distancia.",
-      "Facilita la lectura direccional de obstáculos dinámicos en las curvas.",
-      "Reduce drásticamente el ángulo de visión lateral (se produce el llamado efecto túnel) limitando la visión de costados."
-    ],
-    correctAnswer: 3,
-    category: "Situaciones de conducción"
-  },
-  {
-    id: 86,
-    question: "Si transita por una vía urbana y nota que un vehículo escolar se detiene a orilla de la calzada para el ascenso/descenso de estudiantes:",
-    options: [
-      "Debe acelerar para pasarlo rápidamente antes de que los estudiantes desciendan.",
-      "Usar la bocina de forma continua para alertar a los niños de su presencia.",
-      "Disminuir la velocidad y detenerse si es necesario, cediendo prioridad y esperando a que reanude la marcha con seguridad.",
-      "Esquivarlo cruzando al carril opuesto de manera ágil sin detener su marcha."
-    ],
-    correctAnswer: 2,
-    category: "Situaciones de conducción"
-  },
-  {
-    id: 87,
-    question: "Para garantizar una correcta visibilidad trasera al conducir, el espejo retrovisor interior debe ser regulado de forma que:",
-    options: [
-      "Refleje de manera prioritaria el hombro derecho de la persona que conduce.",
-      "Muestre la mayor cantidad posible de la ventanilla lateral trasera del auto.",
-      "Encuadre perfectamente toda la luneta (vidrio) trasera del automóvil con la menor distorsión posible.",
-      "Refleje el techo interior del vehículo para controlar la comodidad de cabina."
-    ],
-    correctAnswer: 2,
-    category: "Situaciones de conducción"
-  },
-  {
-    id: 88,
-    question: "El exceso de equipaje o carga transportada sobre el techo del vehículo produce:",
-    options: [
-      "Un mejor agarre mecánico de las ruedas traseras en curvas cerradas.",
-      "Una disminución apreciable de la temperatura interna de cabina.",
-      "Un aumento en la potencia útil de frenado dinámico por peso del auto.",
-      "Inestabilidad, aumento de resistencia al aire y elevación del centro de gravedad, elevando el riesgo de vuelco e incrementando el consumo."
-    ],
-    correctAnswer: 3,
-    category: "Situaciones de conducción"
-  },
-  {
-    id: 90,
-    question: "Si observa acumulaciones severas de barro o fango sobre la banda de rodadura de sus neumáticos, debe retirarlas debido a:",
-    options: [
-      "Que el fango reseca drásticamente las fibras sintéticas laterales del neumático.",
-      "Evitar que se ensucie la carrocería del automóvil durante la marcha rápida.",
-      "Que el barro reduce el peso neto útil del auto facilitando la estabilidad trasera.",
-      "Que el fango adherido altera el balanceo de la rueda, genera vibraciones fuertes en la marcha y anula el agarre mecánico sobre asfalto."
-    ],
-    correctAnswer: 3,
-    category: "Situaciones de conducción"
-  },
-  {
-    id: 91,
-    question: "El uso indebido del teléfono celular (enviar mensajes de texto o hablar sin manos libres) al conducir equivale a:",
-    options: [
-      "Una distracción menor que no influye de manera apreciable sobre la seguridad.",
-      "Una conducta permitida siempre que se realice a velocidades inferiores a 30 km/h.",
-      "Multiplicar el riesgo de colisión al anular la atención visual, cognitiva, física y auditiva del conductor frente a imprevistos.",
-      "Una infracción meramente administrativa que no genera accidentes reales."
-    ],
-    correctAnswer: 2,
-    category: "Situaciones de conducción"
-  },
-  {
-    id: 92,
-    question: "Ante una situación imprevista de frenado de pánico con un sistema ABS instalado, ¿cómo debe actuar el conductor sobre el pedal?",
-    options: [
-      "Bombear el pedal de freno soltándolo y pisándolo de manera intermitente y rápida.",
-      "Pisar el freno muy suavemente y activar de inmediato el freno de mano manual.",
-      "Presionar el pedal de freno a fondo con máxima firmeza de manera continua sin soltarlo hasta detener el vehículo.",
-      "Pisar con fuerza únicamente el pedal del embrague esperando que el motor retenga."
-    ],
-    correctAnswer: 2,
-    category: "Situaciones de conducción"
-  },
-  {
-    id: 95,
-    question: "La conducción defensiva se basa en el principio fundamental de:",
-    options: [
-      "Imponer su prioridad de paso legal sobre los demás conductores en cualquier cruce.",
-      "Mantener una posición pasiva cediendo el paso únicamente a transportes de carga.",
-      "Utilizar todas las capacidades del motor para esquivar rápidamente los imprevistos viales.",
-      "Anticiparse a los posibles errores de los demás usuarios de la vía y reaccionar de forma segura previniendo colisiones."
-    ],
-    correctAnswer: 3,
-    category: "Situaciones de conducción"
-  },
-  {
-    id: 96,
-    question: "Si nota que un vehículo que viene en sentido contrario circula con las luces altas encendidas provocándole deslumbramiento, debe:",
-    options: [
-      "Encender sus luces altas de igual manera para obligar al conductor a bajarlas.",
-      "Cerrar momentáneamente los ojos hasta pasar el vehículo por completo.",
-      "Frenar de golpe en seco y encender sus luces estacionarias en el carril.",
-      "Disminuir la velocidad y desviar su mirada ligeramente hacia el borde derecho de la calzada (línea de demarcación de la berma) para guiarse."
-    ],
-    correctAnswer: 3,
-    category: "Situaciones de conducción"
-  },
-  {
-    id: 97,
-    question: "La distancia mínima de seguridad que se debe mantener con el vehículo delantero al transitar a 80 km/h en asfalto seco debe ser de aproximadamente:",
-    options: [
-      "10 metros para evitar que otros automóviles se crucen en su trayectoria.",
-      "La longitud física de un autobús convencional en zonas rurales.",
-      "Al menos la distancia correspondiente a aplicar la regla de los tres segundos de separación prudente de seguimiento.",
-      "Cincuenta metros constantes sin importar la velocidad de la vía."
-    ],
-    correctAnswer: 2,
-    category: "Situaciones de conducción"
-  },
-  {
-    id: 98,
-    question: "Ante la presencia de ciclistas en la calzada, al realizar una maniobra para adelantarlos, el conductor debe:",
-    options: [
-      "Tocar de forma insistente la bocina a corta distancia para exigir que se orillen.",
-      "Pasarlos lo más cerca posible para evitar invadir el carril de sentido opuesto.",
-      "Mantener la misma velocidad del ciclista de forma indefinida detrás de él.",
-      "Disminuir velocidad, cambiarse de carril respetando la separación mínima de 1.5 metros de distancia lateral con respecto al ciclista para su seguridad."
-    ],
-    correctAnswer: 3,
-    category: "Situaciones de conducción"
-  },
-  {
-    id: 99,
-    question: "Al circular por una calzada urbana con pavimentos mojados, el espacio de frenado mecánico de un automóvil:",
-    options: [
-      "Se mantiene exactamente igual si cuenta con neumáticos nuevos de gran calidad.",
-      "Se reduce debido a la refrigeración hidráulica natural de los discos de freno.",
-      "Puede duplicarse o aumentar drásticamente debido a la reducción de fricción entre el caucho y la superficie asfáltica.",
-      "Varía únicamente de noche por el cansancio físico acumulado del conductor."
-    ],
-    correctAnswer: 2,
-    category: "Situaciones de conducción"
-  },
-  {
-    id: 100,
-    question: "Si usted sufre una avería mecánica menor en autopista y debe descender del vehículo para colocar la señalización, es obligatorio:",
-    options: [
-      "Descender por la puerta del copiloto sin usar señalización reflectiva alguna.",
-      "Encender luces altas y bocinas corriendo rápidamente por la calzada principal.",
-      "Ponerse de forma obligatoria un chaleco reflectivo visible de seguridad vial antes de bajar del auto para garantizar que los demás lo vean.",
-      "Llevar un triángulo de seguridad metálico en cada una de sus manos como escudo."
-    ],
-    correctAnswer: 2,
-    category: "Situaciones de conducción"
-  },
-  {
-    id: 101,
-    question: "La maniobra correcta para descender de forma segura una pendiente muy pronunciada en carretera de alta montaña con un auto automático es:",
-    options: [
-      "Colocar la palanca de cambios en posición N (Neutro) y abusar del freno de pedal.",
-      "Apagar el motor de manera intermitente para enfriar los discos de freno traseros.",
-      "Seleccionar un modo manual de marchas bajas (como L, 1, 2 o secuencial) para aprovechar la retención del motor y dosificar frenos.",
-      "Mantener pisado de manera constante el pedal de freno acelerando progresivamente."
-    ],
-    correctAnswer: 2,
-    category: "Situaciones de conducción"
-  },
-  {
-    id: 102,
-    question: "El cinturón de seguridad de tres puntos cumple con la finalidad de:",
-    options: [
-      "Evitar que el conductor adopte posturas inapropiadas que afecten la columna lumbar.",
-      "Sujetar la cabeza del ocupante previniendo impactos fuertes contra los vidrios de costados.",
-      "Asegurar de manera firme el chasis interno de los asientos deportivos especiales.",
-      "Retener de forma segura el torso y la pelvis del ocupante ante un impacto, distribuyendo la fuerza de retención en partes sólidas del cuerpo."
-    ],
-    correctAnswer: 3,
-    category: "Situaciones de conducción"
-  },
-  {
-    id: 103,
-    question: "Si nota que un conductor que marcha adelante circula haciendo zig-zag constante y de forma agresiva en la vía, la conducta recomendada es:",
-    options: [
-      "Adelantarlo rápidamente cortando su trayectoria de marcha para exigir respeto.",
-      "Usar de forma constante la bocina y hacer cambios rápidos de luces altas.",
-      "Mantener una distancia prudente de seguimiento retrasando su posición, evitar confrontaciones viales y reportar a las autoridades.",
-      "Seguirlo de cerca bloqueándole los adelantamientos para calmar su ritmo."
-    ],
-    correctAnswer: 2,
-    category: "Situaciones de conducción"
-  },
-  {
-    id: 104,
-    question: "El tiempo necesario para eliminar por completo el alcohol del torrente sanguíneo depende principalmente de:",
-    options: [
-      "El consumo de duchas de agua fría, café amargo o medicamentos estimulantes.",
-      "La agilidad física de transpiración y la cantidad de ejercicio realizado después.",
-      "La metabolización lenta y constante realizada por el hígado, la cual no se puede acelerar mediante remedios caseros.",
-      "La cantidad de agua pura ingerida inmediatamente después del consumo alcohólico."
-    ],
-    correctAnswer: 2,
-    category: "Situaciones de conducción"
-  },
-  {
-    id: 107,
-    question: "Al realizar una maniobra de adelantamiento en carretera, ¿cuándo es seguro retornar de forma completa al carril derecho?",
-    options: [
-      "Cuando pueda ver la parte delantera completa del vehículo adelantado reflejada en su espejo retrovisor interior.",
-      "Inmediatamente después de pasar el parachoques delantero del otro auto.",
-      "Cuando el conductor del auto adelantado le haga señales sonoras de bocina.",
-      "Al alcanzar una distancia de separación de al menos tres metros del auto."
-    ],
-    correctAnswer: 0,
-    category: "Situaciones de conducción"
-  },
-
-  // ==========================================
-  // MÓDULO 3: Infraestructura
-  // ==========================================
-  {
-    id: 56,
-    question: "Ante un semáforo que parpadea intermitentemente en color amarillo, ¿qué conducta debe asumir el conductor?",
-    options: [
-      "Detener el vehículo por completo y esperar a que el semáforo cambie a color verde.",
-      "Continuar la marcha manteniendo la velocidad máxima del carril de forma constante.",
-      "Acelerar para cruzar la intersección lo más rápido posible ante el cambio de fase del semáforo.",
-      "Avanzar con precaución, disminuyendo la velocidad y estando atento a ceder el paso a peatones u otros vehículos con prelación."
-    ],
-    correctAnswer: 3,
-    category: "Infraestructura"
-  },
-  {
-    id: 58,
-    question: "De acuerdo con las normas de tránsito de Colombia, al aproximarse a una intersección vial donde no hay señalización de prioridad, ¿quién tiene la prelación de paso?",
-    options: [
-      "El vehículo que se aproxima por el costado derecho del conductor.",
-      "El vehículo de mayor tamaño o peso de carga que transite por la vía principal.",
-      "Aquel conductor que use primero la bocina y realice señales de luces altas.",
-      "El vehículo que continúe recto sin importar el costado por donde venga cruzando."
-    ],
-    correctAnswer: 0,
-    category: "Infraestructura"
-  },
-  {
-    id: 62,
-    question: "Al aproximarse a una glorieta o rotonda de un solo carril, ¿quién tiene la prioridad o prelación de paso legal?",
-    options: [
-      "El vehículo que pretenda ingresar primero a la glorieta por el acceso derecho.",
-      "El vehículo de servicio público o de carga que venga por una avenida de dos carriles.",
-      "Aquel vehículo que transite a mayor velocidad media dentro de la vía de aproximación.",
-      "El vehículo que ya se encuentra circulando dentro de la glorieta con respecto a los que pretenden ingresar."
-    ],
-    correctAnswer: 3,
-    category: "Infraestructura"
-  },
-  {
-    id: 67,
-    question: "Al ingresar a una autopista a través de un carril de incorporación (carril de aceleración), el conductor debe:",
-    options: [
-      "Avanzar lentamente y detenerse al inicio del carril esperando que no transite ningún auto.",
-      "Acelerar a fondo cruzándose de forma rápida sin mirar los espejos retrovisores.",
-      "Ingresar inmediatamente tocando la bocina para exigir que le abran el paso prioritario.",
-      "Evaluar la velocidad del tránsito por los retrovisores, acelerar adecuadamente para igualar la velocidad e incorporarse sin entorpecer."
-    ],
-    correctAnswer: 3,
-    category: "Infraestructura"
-  },
-  {
-    id: 74,
-    question: "Al aproximarse a un cruce ferroviario a nivel (paso de tren) sin barreras físicas instaladas, el conductor debe:",
-    options: [
-      "Cruzar lo más rápido posible tocando insistentemente la bocina para advertir.",
-      "Encender las luces de parqueo y continuar la marcha sin detenerse.",
-      "Detener el vehículo por completo a una distancia prudente, apagar el radio, escuchar y mirar en ambos sentidos antes de avanzar.",
-      "Avanzar despacio de forma diagonal para evitar golpes en el chasis."
-    ],
-    correctAnswer: 2,
-    category: "Infraestructura"
-  },
-  {
-    id: 80,
-    question: "¿Qué indica la presencia de una luz roja intermitente instalada en un paso a nivel ferroviario o puente móvil?",
-    options: [
-      "Que el paso está habilitado avanzando con máxima precaución.",
-      "Que el semáforo se encuentra fuera de servicio de forma indefinida.",
-      "Prohibición de paso inminente; equivale a un Pare obligatorio debido a la aproximación de un tren o maniobra de puente.",
-      "Un aviso reglamentario exclusivo para vehículos de carga pesada."
-    ],
-    correctAnswer: 2,
-    category: "Infraestructura"
-  },
-  {
-    id: 94,
-    question: "Al aproximarse a una glorieta de dos carriles, si usted tiene la intención de tomar la tercera salida (giro a la izquierda), debe:",
-    options: [
-      "Ingresar por el carril derecho de aproximación y mantenerse por fuera de la rotonda.",
-      "Avanzar recto cortando camino por la zona central ajardinada de la glorieta.",
-      "Ingresar por el carril izquierdo, circular por la zona interna de la glorieta y pasar con cuidado al carril externo antes de salir.",
-      "Hacer señales con la bocina y cruzar de manera transversal sin importar carriles."
-    ],
-    correctAnswer: 2,
-    category: "Infraestructura"
-  },
-  {
-    id: 105,
-    question: "La distancia mínima de parqueo permitida por la reglamentación colombiana con respecto a un hidrante de bomberos es de:",
-    options: [
-      "Dos (2) metros constantes en calzadas secundarias urbanas.",
-      "Un (1) metro siempre que el conductor permanezca dentro de la cabina.",
-      "Cinco (5) metros libres para garantizar el acceso rápido de emergencia en incendios.",
-      "Diez (10) metros en cualquier tipo de vía principal o autopista nacional."
-    ],
-    correctAnswer: 2,
-    category: "Infraestructura"
-  },
-  {
-    id: 106,
-    question: "¿Qué indica la presencia de una línea continua blanca pintada sobre el borde derecho de la calzada de asfalto?",
-    options: [
-      "Delimita el borde exterior transitable de la vía, separando la calzada de la berma o zona exterior.",
-      "Prohibición estricta de adelantar por el costado izquierdo de la vía.",
-      "Un carril exclusivo para el uso de transportes masivos de servicio público.",
-      "Zonas habilitadas exclusivamente para estacionar vehículos particulares."
-    ],
-    correctAnswer: 0,
-    category: "Infraestructura"
-  },
-  {
-    id: 108,
-    question: "La velocidad máxima permitida para transitar por zonas residenciales, escolares y comerciales congestionadas en Colombia es de:",
-    options: [
-      "30 km/h por razones obvias de seguridad técnica de protección a peatones vulnerables.",
-      "40 km/h manteniendo luces de estacionamiento encendidas de forma constante.",
-      "50 km/h en vías residenciales amplias y autopistas internas urbanas.",
-      "20 km/h únicamente durante el horario laboral o escolar reglamentario."
-    ],
-    correctAnswer: 0,
-    category: "Infraestructura"
-  },
-  {
-    id: 126,
-    question: "Está estrictamente prohibido estacionar vehículos en las siguientes zonas urbanas:",
-    options: [
-      "Calles secundarias con ancho de calzada superior a seis metros.",
-      "Vías principales, autopistas, curvas, puentes, zonas peatonales o frente a garajes activos.",
-      "Zonas residenciales autorizadas por las juntas de vecinos.",
-      "Bahías de parqueo debidamente señalizadas por la alcaldía."
-    ],
-    correctAnswer: 1,
-    category: "Infraestructura"
-  },
-  {
-    id: 131,
-    question: "¿Qué tipo de señalización vial tiene la mayor jerarquía o prioridad legal de obediencia?",
-    options: [
-      "Las señales de tránsito reglamentarias de color rojo.",
-      "Las indicaciones y órdenes impartidas directamente por los Agentes de Tránsito en la vía.",
-      "Los semáforos instalados en cruces o intersecciones congestionadas.",
-      "Las señales horizontales pintadas directamente sobre el pavimento seco."
-    ],
-    correctAnswer: 1,
-    category: "Infraestructura"
-  },
-  {
-    id: 148,
-    question: "¿Qué forma geométrica y patrón de colores caracteriza a la mayoría de las señales de tránsito reglamentarias?",
-    options: [
-      "Forma circular con borde rojo, fondo blanco y símbolo negro.",
-      "Forma de rombo con fondo amarillo y bordes negros.",
-      "Forma rectangular con fondo azul y letras blancas.",
-      "Forma triangular con borde verde y fondo amarillo."
-    ],
-    correctAnswer: 0,
-    category: "Infraestructura"
-  },
-  {
-    id: 149,
-    question: "Las señales de tránsito preventivas o de advertencia de peligro se caracterizan por tener forma de:",
-    options: [
-      "Círculo con borde rojo.",
-      "Rombo con fondo amarillo y borde negro.",
-      "Octágono con fondo rojo.",
-      "Rectángulo con fondo azul."
-    ],
-    correctAnswer: 1,
-    category: "Infraestructura"
-  },
-  {
-    id: 150,
-    question: "Las señales de tránsito informativas que guían sobre destinos, sitios de interés y distancias tienen predominantemente fondo de color:",
-    options: [
-      "Amarillo o naranja.",
-      "Rojo o blanco.",
-      "Azul o verde con texto y símbolos blancos.",
-      "Negro con texto reflectivo amarillo."
-    ],
-    correctAnswer: 2,
-    category: "Infraestructura"
-  },
-  {
-    id: 151,
-    question: "La presencia de una doble línea continua de color amarillo pintada en el centro de la calzada indica:",
-    options: [
-      "Prohibición absoluta de adelantar en ambos sentidos de circulación.",
-      "Permiso para adelantar únicamente por la derecha.",
-      "Carril preferencial para vehículos pesados.",
-      "Zona de estacionamiento temporal permitido."
-    ],
-    correctAnswer: 0,
-    category: "Infraestructura"
-  },
-  {
-    id: 152,
-    question: "Una línea central discontinua de color amarillo sobre la calzada significa que:",
-    options: [
-      "Está prohibido adelantar salvo en emergencias.",
-      "Está permitido realizar adelantamientos en ambos sentidos con la debida precaución.",
-      "La vía es de un solo sentido de circulación.",
-      "Se aproxima un resalto o reductor de velocidad."
-    ],
-    correctAnswer: 1,
-    category: "Infraestructura"
-  },
-  {
-    id: 153,
-    question: "Si la demarcación central de la calzada consta de una línea continua paralela a una línea discontinua, el conductor puede adelantar si:",
-    options: [
-      "Transita por el lado de la línea continua.",
-      "Transita por el lado de la línea discontinua.",
-      "No vienen vehículos a menos de 500 metros.",
-      "Enciende las luces altas de emergencia."
-    ],
-    correctAnswer: 1,
-    category: "Infraestructura"
-  },
-  {
-    id: 154,
-    question: "La instalación de reductores de velocidad tipo resalto o estoperoles en la infraestructura vial tiene como fin:",
-    options: [
-      "Incrementar la tracción mecánica de los neumáticos.",
-      "Obligar a los conductores a reducir la velocidad antes de zonas de riesgo o cruces peatonales.",
-      "Delimitar los carriles de circulación en autopistas.",
-      "Indicar zonas habilitadas para giros en U."
-    ],
-    correctAnswer: 1,
-    category: "Infraestructura"
-  },
-  {
-    id: 155,
-    question: "Las franjas transversales blancas pintadas sobre el pavimento (paso de cebra) delimitan:",
-    options: [
-      "La zona de detención obligatoria para buses de servicio público.",
-      "La franja prioritaria para el cruce exclusivo de peatones.",
-      "La zona de parqueo autorizado para motocicletas.",
-      "El límite de velocidad de inicio de autopista."
-    ],
-    correctAnswer: 1,
-    category: "Infraestructura"
-  },
-  {
-    id: 156,
-    question: "La señal preventiva SP-25 (dos protuberancias continuas) advierte al conductor sobre:",
-    options: [
-      "La proximidad de un puente angosto.",
-      "La proximidad de un rizado o irregularidades continuas en la superficie de la calzada.",
-      "La presencia de zona de derrumbes.",
-      "La cercanía de una zona de peaje."
-    ],
-    correctAnswer: 1,
-    category: "Infraestructura"
-  },
-  {
-    id: 157,
-    question: "La señal reglamentaria SR-01 (octágono rojo con texto PARE) exige al conductor:",
-    options: [
-      "Disminuir levemente la velocidad antes de cruzar.",
-      "Detener la marcha del vehículo por completo antes de la línea de parada o intersección.",
-      "Girar obligatoriamente hacia la derecha.",
-      "Ceder el paso solo a vehículos de carga pesada."
-    ],
-    correctAnswer: 1,
-    category: "Infraestructura"
-  },
-  {
-    id: 158,
-    question: "La señal reglamentaria SR-02 (triángulo invertido con borde rojo \"CEDA EL PASO\") significa:",
-    options: [
-      "Detenerse obligatoriamente durante 30 segundos.",
-      "Disminuir la velocidad y ceder la preferencia de paso a los vehículos que circulan por la vía principal.",
-      "Carril cerrado por obras en la infraestructura.",
-      "Prohibición de girar a la izquierda."
-    ],
-    correctAnswer: 1,
-    category: "Infraestructura"
-  },
-  {
-    id: 159,
-    question: "La berma es una franja longitudinal de la vía contigua a la calzada destinada a:",
-    options: [
-      "El tránsito habitual de vehículos de carga pesada.",
-      "El estacionamiento de emergencia, detención temporal o tránsito peatonal fuera del flujo principal.",
-      "Adelantamientos rápidos por la derecha.",
-      "Uso exclusivo para maniobras de reversa."
-    ],
-    correctAnswer: 1,
-    category: "Infraestructura"
-  },
-  {
-    id: 160,
-    question: "Las señales de tránsito con fondo de color naranja e inscripciones negras indican:",
-    options: [
-      "Sitios turísticos y recreativos.",
-      "Presencia de obras, mantenimiento o trabajos temporales en la infraestructura vial.",
-      "Rutas habilitadas para transporte de materiales peligrosos.",
-      "Zonas de velocidad libre en carreteras nacionales."
-    ],
-    correctAnswer: 1,
-    category: "Infraestructura"
-  },
-  {
-    id: 161,
-    question: "La infraestructura vial segregada por bordillos o pintura especial destinada exclusivamente a la circulación de bicicletas se denomina:",
-    options: [
-      "Berma exterior.",
-      "Ciclorruta o ciclovía.",
-      "Carril de aceleración.",
-      "Bahía de servicio."
-    ],
-    correctAnswer: 1,
-    category: "Infraestructura"
-  },
-  {
-    id: 162,
-    question: "La señal preventiva con una \"T\" negra sobre fondo amarillo advierte:",
-    options: [
-      "Proximidad de un túnel de doble vía.",
-      "Proximidad de una intersección en T donde se debe girar a la izquierda o derecha.",
-      "Zona de terminal de transporte terrestre.",
-      "Fin de la calzada pavimentada."
-    ],
-    correctAnswer: 1,
-    category: "Infraestructura"
-  },
-  {
-    id: 163,
-    question: "La línea blanca continua pintada de forma transversal sobre la calzada antes de un semáforo representa:",
-    options: [
-      "El límite máximo donde debe detenerse el vehículo sin invadir el paso peatonal.",
-      "El inicio del carril de adelantamiento rápido.",
-      "La zona donde se permite el ascenso de pasajeros.",
-      "El punto de aceleración para ingresar a la rotonda."
-    ],
-    correctAnswer: 0,
-    category: "Infraestructura"
-  },
-
-  // ==========================================
-  // MÓDULO 4: Normativa vial
-  // ==========================================
-  {
-    id: 68,
-    question: "De acuerdo con el Código Nacional de Tránsito, es obligatorio el uso del cinturón de seguridad en los asientos traseros:",
-    options: [
-      "En todos los vehículos fabricados a partir del año 2004 en cualquier calzada nacional, departamental o municipal.",
-      "Únicamente cuando se transite por carreteras nacionales o autopistas nacionales de alta velocidad.",
-      "Solamente si viajan personas de la tercera edad o mujeres en estado de gestación.",
-      "En ningún caso el uso del cinturón en asientos traseros es sancionable en zonas urbanas."
-    ],
-    correctAnswer: 0,
-    category: "Normativa vial"
-  },
-  {
-    id: 69,
-    question: "¿Cuál es el límite máximo de velocidad permitido para vehículos particulares que transitan por carreteras nacionales o autopistas en Colombia?",
-    options: [
-      "90 km/h de forma generalizada sin importar las condiciones del clima.",
-      "100 km/h en todas las autopistas nacionales de manera uniforme.",
-      "140 km/h si la vía cuenta con doble calzada y barreras físicas medianas.",
-      "120 km/h siempre que las condiciones de seguridad vial y la señalización reglamentaria lo permitan."
-    ],
-    correctAnswer: 3,
-    category: "Normativa vial"
-  },
-  {
-    id: 89,
-    question: "Al encontrarse con un retén o puesto de control de la Policía de Tránsito en la vía, el conductor debe:",
-    options: [
-      "Acelerar para evitar demoras innecesarias si tiene toda su documentación vigente.",
-      "Encender de inmediato luces altas y bocinas cruzándose de carril de forma ágil.",
-      "Orillarse lentamente y salir corriendo a entregar los papeles al oficial de guardia.",
-      "Disminuir la velocidad de manera progresiva, seguir las indicaciones del oficial, detenerse de forma segura y colaborar con la autoridad."
-    ],
-    correctAnswer: 3,
-    category: "Normativa vial"
-  },
-  {
-    id: 93,
-    question: "Los sistemas de retención infantil (sillas de seguridad para bebés y niños pequeños) deben ser instalados:",
-    options: [
-      "En el asiento delantero si va acompañado por una persona adulta responsable.",
-      "Encima de las piernas del copiloto asegurados con el cinturón primario.",
-      "En el asiento trasero central únicamente utilizando cinturones de dos puntos.",
-      "Obligatoriamente en los asientos traseros del vehículo, fijados de manera segura mediante sistemas ISOFIX o el cinturón de seguridad de tres puntos."
-    ],
-    correctAnswer: 3,
-    category: "Normativa vial"
-  },
-  {
-    id: 109,
-    question: "La vigencia de la licencia de conducción para vehículos de servicio particular para personas entre 60 y 80 años de edad es de:",
-    options: [
-      "Cinco (5) años.",
-      "Diez (10) años contados a partir de la expedición.",
-      "Tres (3) años reglamentarios.",
-      "Anual con examen de aptitud física obligatorio."
-    ],
-    correctAnswer: 0,
-    category: "Normativa vial"
-  },
-  {
-    id: 110,
-    question: "La vigencia de la licencia de conducción para servicio público para personas mayores de 60 años de edad es de:",
-    options: [
-      "Un (1) año por razones de control de aptitud psicométrica.",
-      "Tres (3) años reglamentarios.",
-      "Cinco (5) años contados a partir de la expedición.",
-      "Dos (2) años obligatorios."
-    ],
-    correctAnswer: 0,
-    category: "Normativa vial"
-  },
-  {
-    id: 111,
-    question: "Las licencias de conducción para motocicletas de cilindraje superior a 125 c.c. corresponden a la categoría:",
-    options: [
-      "A1 de manera general.",
-      "B1 de conducción liviana.",
-      "A2 de conducción de motocicletas de mediano y gran cilindraje.",
-      "C1 de servicio público particular."
-    ],
-    correctAnswer: 2,
-    category: "Normativa vial"
-  },
-  {
-    id: 112,
-    question: "La Revisión Técnico-Mecánica obligatoria para vehículos particulares nuevos debe realizarse por primera vez:",
-    options: [
-      "A los dos (2) años contados a partir de su matrícula inicial.",
-      "Anualmente a partir de la fecha de entrega por el concesionario.",
-      "A los cinco (5) años contados a partir de la fecha de su matrícula.",
-      "A los seis (6) años contados a partir de la fecha de matrícula inicial."
-    ],
-    correctAnswer: 2,
-    category: "Normativa vial"
-  },
-  {
-    id: 113,
-    question: "El Seguro Obligatorio de Accidentes de Tránsito (SOAT) cubre principalmente:",
-    options: [
-      "Los daños mecánicos y materiales sufridos por los vehículos implicados en el siniestro.",
-      "El robo total o parcial del vehículo y los perjuicios civiles a terceros.",
-      "Únicamente los gastos médicos de la persona que conducía el auto asegurado.",
-      "Los gastos médicos, quirúrgicos, farmacéuticos, indemnizaciones por incapacidad y transporte de todas las personas lesionadas en el siniestro."
-    ],
-    correctAnswer: 3,
-    category: "Normativa vial"
-  },
-  {
-    id: 114,
-    question: "Circular con la Revisión Técnico-Mecánica o el SOAT vencidos genera la siguiente sanción reglamentaria:",
-    options: [
-      "Una amonestación escrita con obligación de asistir a un curso de seguridad.",
-      "Inmovilización inmediata del vehículo sin multa económica aplicable.",
-      "Multa equivalente a 15 salarios mínimos diarios legales vigentes sin inmovilizar.",
-      "Multa equivalente a 30 salarios mínimos diarios legales vigentes (SMDLV) e inmovilización obligatoria del vehículo."
-    ],
-    correctAnswer: 3,
-    category: "Normativa vial"
-  },
-  {
-    id: 115,
-    question: "¿Qué sanción se aplica a un conductor que sea sorprendido conduciendo bajo la influencia del alcohol en Grado 1 por primera vez?",
-    options: [
-      "Suspensión de la licencia de conducción por un (1) año y multa mínima de 45 SMDLV.",
-      "Cancelación definitiva de la licencia y arresto preventivo de 72 horas.",
-      "Suspensión de la licencia por tres (3) años, multa de 180 SMDLV, inmovilización del vehículo y 30 horas de servicio comunitario.",
-      "Retención de documentos por quince días calendario sin sanción pecuniaria."
-    ],
-    correctAnswer: 2,
-    category: "Normativa vial"
-  },
-  {
-    id: 116,
-    question: "La velocidad máxima permitida para vehículos de servicio público y escolar en zonas urbanas es de:",
-    options: [
-      "80 km/h en calzadas secundarias urbanas.",
-      "60 km/h en todas las avenidas principales congestionadas.",
-      "40 km/h en zonas de aproximación escolar residenciales.",
-      "50 km/h en vías urbanas de manera generalizada según normatividad vigente."
-    ],
-    correctAnswer: 3,
-    category: "Normativa vial"
-  },
-  {
-    id: 117,
-    question: "Conducir un vehículo sin haber obtenido previamente la respectiva licencia de conducción da lugar a:",
-    options: [
-      "Amonestación verbal permitiendo continuar el viaje con un conductor habilitado.",
-      "Multa equivalente a 30 salarios mínimos diarios legales vigentes (SMDLV) e inmovilización del vehículo.",
-      "Retención del automóvil por 24 horas sin cobro de multas administrativas.",
-      "Citación judicial para comparecer ante un juez de tránsito en zona rural."
-    ],
-    correctAnswer: 1,
-    category: "Normativa vial"
-  },
-  {
-    id: 118,
-    question: "El desacato a las señales de tránsito de los agentes de tránsito se sanciona con multa equivalente a:",
-    options: [
-      "Cinco (5) salarios mínimos diarios legales vigentes.",
-      "Diez (10) salarios mínimos diarios legales vigentes.",
-      "Quince (15) salarios mínimos diarios legales vigentes (SMDLV).",
-      "Treinta (30) salarios mínimos diarios legales vigentes con curso obligatorio."
-    ],
-    correctAnswer: 2,
-    category: "Normativa vial"
-  },
-  {
-    id: 119,
-    question: "El adelantamiento en curvas, pendientes prolongadas o puentes de un solo carril constituye una infracción codificada como de tipo:",
-    options: [
-      "Infracción leve con sanción de amonestación preventiva simple.",
-      "Infracción gravísima, con multa de 30 SMDLV y posible inmovilización.",
-      "Infracción administrativa simple que no amerita comparendo físico.",
-      "Infracción penal con arresto inmediato de 24 horas de reclusión."
-    ],
-    correctAnswer: 1,
-    category: "Normativa vial"
-  },
-  {
-    id: 120,
-    question: "¿Cuántos años de suspensión de licencia corresponden a Grado 2 de alcoholemia por primera vez?",
-    options: [
-      "Dos (2) años obligatorios.",
-      "Cinco (5) años de suspensión de la licencia.",
-      "Tres (3) años con inmovilización simple.",
-      "Diez (10) años de suspensión y cancelación definitiva."
-    ],
-    correctAnswer: 1,
-    category: "Normativa vial"
-  },
-  {
-    id: 121,
-    question: "El valor del comparendo electrónico puede reducirse en un 50% si el infractor realiza el pago y el curso obligatorio dentro de:",
-    options: [
-      "Los tres (3) días hábiles siguientes a la notificación oficial física.",
-      "Los once (11) días hábiles siguientes a la notificación de la infracción.",
-      "Los treinta (30) días calendario posteriores al registro fotográfico.",
-      "Cualquier momento antes de la fecha de citación a audiencia formal."
-    ],
-    correctAnswer: 1,
-    category: "Normativa vial"
-  },
-  {
-    id: 122,
-    question: "¿Qué entidad en Colombia se encarga de expedir y regular las licencias de conducción a través del RUNT?",
-    options: [
-      "La Policía Nacional de Carreteras.",
-      "El Organismo de Tránsito Municipal de la jurisdicción habilitado por el Ministerio de Transporte.",
-      "El Ministerio de Educación Nacional de forma directa.",
-      "La Superintendencia de Puertos y Transporte terrestre."
-    ],
-    correctAnswer: 1,
-    category: "Normativa vial"
-  },
-  {
-    id: 123,
-    question: "Circular en contravía (en sentido contrario al señalado para la vía) es sancionado con:",
-    options: [
-      "Amonestación verbal simple obligando a dar la vuelta.",
-      "Multa equivalente a 30 salarios mínimos diarios legales vigentes (SMDLV).",
-      "Retención de la licencia de conducción por un periodo de seis meses.",
-      "Multa de 15 salarios mínimos diarios sin inmovilización del auto."
-    ],
-    correctAnswer: 1,
-    category: "Normativa vial"
-  },
-  {
-    id: 124,
-    question: "El nivel de alcoholemia denominado \"Grado 0\" de tolerancia para conductores particulares se sitúa entre:",
-    options: [
-      "0.1 y 0.19 mg de etanol por litro de sangre.",
-      "20 y 39 mg de etanol por cada 100 ml de sangre.",
-      "40 y 99 mg de etanol por cada 100 ml de sangre.",
-      "100 mg o superior por cada 100 ml de sangre."
-    ],
-    correctAnswer: 1,
-    category: "Normativa vial"
-  },
-  {
-    id: 125,
-    question: "Un conductor que acumule dos o más infracciones de tránsito en un periodo menor a seis meses se considera:",
-    options: [
-      "Infractor pasivo con derecho a descuentos sucesivos ilimitados.",
-      "Reincidente, lo que faculta a la autoridad para suspender la licencia de conducción por seis meses.",
-      "Un infractor menor exento de sanciones de inmovilización.",
-      "Sujeto de multas dobles automáticas sin derecho a descargos."
-    ],
-    correctAnswer: 1,
-    category: "Normativa vial"
-  },
-  {
-    id: 127,
-    question: "La edad mínima requerida en Colombia para obtener una licencia de conducción de servicio público es de:",
-    options: [
-      "Dieciséis (16) años cumplidos.",
-      "Dieciocho (18) años de edad cumplidos de acuerdo con la normatividad legal.",
-      "Veintiún (21) años de edad obligatorios.",
-      "Veinticinco (25) años de edad con experiencia certificada."
-    ],
-    correctAnswer: 1,
-    category: "Normativa vial"
-  },
-  {
-    id: 128,
-    question: "El comparendo físico de tránsito se define legalmente en Colombia como:",
-    options: [
-      "Una condena inmediata de culpabilidad que exige el pago de la multa.",
-      "Una orden formal de notificación para que el presunto infractor comparezca ante la autoridad de tránsito competente.",
-      "Un documento meramente informativo sin valor legal pecuniario posterior.",
-      "Una solicitud de retención preventiva de documentos del vehículo."
-    ],
-    correctAnswer: 1,
-    category: "Normativa vial"
-  },
-  {
-    id: 129,
-    question: "No portar el kit de carretera completo obligatorio regulado por el CNT acarrea una sanción de:",
-    options: [
-      "Una multa equivalente a cinco salarios mínimos diarios vigentes.",
-      "Multa equivalente a quince salarios mínimos diarios legales vigentes (SMDLV).",
-      "La inmovilización inmediata del vehículo en grúa autorizada.",
-      "Curso de seguridad vial de dos horas sin cobro pecuniario alguno."
-    ],
-    correctAnswer: 1,
-    category: "Normativa vial"
-  },
-  {
-    id: 130,
-    question: "La licencia de conducción en Colombia se cancela de forma definitiva en el siguiente caso:",
-    options: [
-      "Por acumular tres comparendos de velocidad en un año de calendario.",
-      "Por conducir bajo estado de embriaguez por tercera vez (reincidencia) o provocar muertes culposas.",
-      "Por negarse a portar el chaleco reflectivo reglamentario nocturno.",
-      "Por el vencimiento del término legal de renovación física."
-    ],
-    correctAnswer: 1,
-    category: "Normativa vial"
-  },
-  {
-    id: 132,
-    question: "Transitar con las luces delanteras apagadas en el horario comprendido entre las 6:00 p.m. y las 6:00 a.m. se sanciona con multa de:",
-    options: [
-      "Cinco (5) salarios mínimos diarios legales vigentes.",
-      "Quince (15) salarios mínimos diarios legales vigentes (SMDLV).",
-      "Treinta (30) salarios mínimos diarios legales vigentes con inmovilización.",
-      "Amonestación escrita simple de seguridad vial."
-    ],
-    correctAnswer: 1,
-    category: "Normativa vial"
-  },
-  {
-    id: 133,
-    question: "La inmovilización de un vehículo en parqueaderos oficiales autorizados consiste en:",
-    options: [
-      "El retiro preventivo de la licencia física del conductor.",
-      "La suspensión temporal de la circulación del vehículo en la vía pública por una presunta infracción de tránsito grave.",
-      "La confiscación permanente de la propiedad del automóvil por deudas.",
-      "Un proceso de revisión mecánica forzosa ordenada por la alcaldía."
-    ],
-    correctAnswer: 1,
-    category: "Normativa vial"
-  },
-  {
-    id: 134,
-    question: "El término máximo legal para interponer recursos de reposición contra una sanción de tránsito dictada en audiencia es de:",
-    options: [
-      "Veinticuatro horas posteriores a la notificación de la sanción.",
-      "Dentro de los cinco (5) días hábiles siguientes a la notificación del fallo en audiencia.",
-      "Diez días calendario contados desde la imposición física del parte.",
-      "No existe recurso administrativo ordinario contra fallos de tránsito."
-    ],
-    correctAnswer: 1,
-    category: "Normativa vial"
-  },
-  {
-    id: 135,
-    question: "La placa del vehículo es un elemento público que cumple con la función legal de:",
-    options: [
-      "Acreditar el pago de los impuestos de rodamiento municipal anual.",
-      "Identificar de manera única, pública e inequívoca al vehículo a nivel nacional.",
-      "Autorizar la libre circulación del automóvil en vías de otros países.",
-      "Registrar de forma directa el historial de propietarios del chasis."
-    ],
-    correctAnswer: 1,
-    category: "Normativa vial"
-  },
-  {
-    id: 136,
-    question: "Circular con un vehículo particular prestando un servicio público no autorizado da lugar a:",
-    options: [
-      "Multa equivalente a 15 SMDLV sin retención del vehículo.",
-      "Compandendo de 30 SMDLV, inmovilización del vehículo por primera vez por 5 días e incrementándose en reincidencia.",
-      "Suspensión definitiva de la matrícula del vehículo de forma automática.",
-      "Curso de capacitación vial de diez horas sin cobros monetarios."
-    ],
-    correctAnswer: 1,
-    category: "Normativa vial"
-  },
-  {
-    id: 137,
-    question: "La licencia de tránsito (tarjeta de propiedad) del vehículo se define legalmente como:",
-    options: [
-      "El contrato de seguro obligatorio contra todo riesgo suscrito por el propietario.",
-      "El documento público que autoriza a transitar a un vehículo específico por el territorio nacional identificándolo de forma completa.",
-      "El certificado físico aprobatorio de la Revisión Técnico-Mecánica obligatoria.",
-      "La autorización legal para que una persona natural pueda conducir el auto."
-    ],
-    correctAnswer: 1,
-    category: "Normativa vial"
-  },
-  {
-    id: 138,
-    question: "El comparendo impuesto por no realizar la transferencia de propiedad (traspaso) dentro del término legal genera multas a cargo de:",
-    options: [
-      "El comprador únicamente de forma exclusiva.",
-      "El vendedor y comprador de forma solidaria de acuerdo con la ley.",
-      "El organismo de tránsito que registró la matrícula original.",
-      "La aseguradora que expidió la póliza SOAT del vehículo."
-    ],
-    correctAnswer: 1,
-    category: "Normativa vial"
-  },
-  {
-    id: 139,
-    question: "La sanción pecuniaria aplicable por arrojar basuras, residuos o escombros a la vía pública desde un vehículo en marcha es de:",
-    options: [
-      "Cinco (5) salarios mínimos diarios legales vigentes.",
-      "Treinta (30) salarios mínimos diarios legales vigentes (SMDLV).",
-      "Quince (15) salarios mínimos diarios legales vigentes.",
-      "Amonestación de servicio de limpieza urbana por diez horas continuas."
-    ],
-    correctAnswer: 1,
-    category: "Normativa vial"
-  },
-  {
-    id: 140,
-    question: "El conductor que se niegue a la realización de las pruebas de alcoholemia ordenadas por la autoridad de tránsito incurrirá en:",
-    options: [
-      "Multa de 15 SMDLV y curso correctivo al día hábil siguiente.",
-      "La sanción más severa de multa (hasta 1440 SMDLV), cancelación de la licencia e inmovilización definitiva del vehículo.",
-      "Una citación simple para descargos en la oficina municipal de tránsito.",
-      "No se puede sancionar debido a la presunción de inocencia constitucional."
-    ],
-    correctAnswer: 1,
-    category: "Normativa vial"
-  },
-  {
-    id: 141,
-    question: "Transitar con un vehículo que presente vidrios polarizados o entintados sin contar con la respectiva autorización legal genera multa de:",
-    options: [
-      "Cinco (5) salarios mínimos diarios legales vigentes.",
-      "Quince (15) salarios mínimos diarios legales vigentes (SMDLV).",
-      "Treinta (30) salarios mínimos diarios con retención del vehículo.",
-      "Amonestación de retiro físico de la película plástica reflectiva."
-    ],
-    correctAnswer: 1,
-    category: "Normativa vial"
-  },
-  {
-    id: 142,
-    question: "La inmovilización del vehículo por transitar en las horas prohibidas por la medida de \"Pico y Placa\" dura un periodo mínimo de:",
-    options: [
-      "Doce horas continuas en parqueaderos oficiales autorizados.",
-      "El tiempo necesario para que finalice la restricción de ese día específico y se cancele la multa correspondiente.",
-      "Veinticuatro horas calendario sin opción de retiro anticipado por ley.",
-      "El Pico y Placa no da lugar a inmovilización sino únicamente a sanción de multa."
-    ],
-    correctAnswer: 1,
-    category: "Normativa vial"
-  },
-  {
-    id: 143,
-    question: "¿Qué vigencia tiene la Revisión Técnico-Mecánica obligatoria para vehículos de servicio público nuevos?",
-    options: [
-      "Se debe realizar de manera obligatoria cada año calendario a partir del primer año de matrícula.",
-      "Cada dos años contados desde la expedición de la tarjeta de operaciones.",
-      "A los cinco años de su matrícula inicial en el organismo de tránsito.",
-      "Cada seis meses de forma preventiva en talleres autorizados."
-    ],
-    correctAnswer: 0,
-    category: "Normativa vial"
-  },
-  {
-    id: 144,
-    question: "El traspaso de un vehículo a un tercero exige obligatoriamente estar a paz y salvo por concepto de:",
-    options: [
-      "Únicamente impuestos de rodamiento departamentales anuales.",
-      "Multas por infracciones de tránsito registradas ante el SIMIT a nivel nacional e impuestos locales del vehículo.",
-      "Pólizas de seguro todo riesgo contra robo y responsabilidad civil.",
-      "Exámenes médicos de aptitud psicofísica del comprador del bien."
-    ],
-    correctAnswer: 1,
-    category: "Normativa vial"
-  },
-  {
-    id: 145,
-    question: "El Seguro Obligatorio de Accidentes de Tránsito (SOAT) tiene una vigencia generalizada de:",
-    options: [
-      "Dos años contados desde su expedición electrónica.",
-      "Un (1) año calendario contado desde la fecha y hora de su expedición.",
-      "Indefinida mientras el vehículo mantenga la matrícula activa.",
-      "Semestral obligatoria para vehículos de servicio público."
-    ],
-    correctAnswer: 1,
-    category: "Normativa vial"
-  },
-  {
-    id: 146,
-    question: "La velocidad máxima permitida para vehículos particulares en vías urbanas principales en Colombia (ej. autopistas urbanas) es de:",
-    options: [
-      "50 km/h de acuerdo con el límite general establecido por la Ley de Seguridad Vial (Ley 2251 de 2022).",
-      "60 km/h en todas las autopistas internas de manera uniforme.",
-      "80 km/h si las condiciones de visibilidad y el asfalto seco lo permiten.",
-      "30 km/h constantes por razones obvias de cruces de peatones vulnerables."
-    ],
-    correctAnswer: 0,
-    category: "Normativa vial"
-  },
-  {
-    id: 147,
-    question: "El desacato o no comparecer ante la citación de tránsito dentro de los términos hábiles establecidos da lugar a:",
-    options: [
-      "La anulación automática de la infracción por caducidad procesal.",
-      "La continuación del proceso sancionatorio declarándolo contraventor y cargando la multa definitiva de forma coactiva.",
-      "Una nueva citación física con cobro de intereses dobles automáticos.",
-      "La inmovilización preventiva inmediata de las cuentas bancarias del citado."
-    ],
-    correctAnswer: 1,
-    category: "Normativa vial"
+  {
+    "id": 1,
+    "question": "¿Cuál es la proporción adecuada para el uso del freno delantero y trasero en condiciones de asfalto seco?",
+    "options": [
+      "50% delantero y 50% trasero",
+      "70% delantero y 30% trasero",
+      "30% delantero y 70% trasero",
+      "100% delantero únicamente"
+    ],
+    "correctAnswer": 1,
+    "category": "Mecánica"
+  },
+  {
+    "id": 2,
+    "question": "¿Qué función cumple la holgura o juego libre en la manigueta del embrague (guaya)?",
+    "options": [
+      "Evitar que las direccionales de la moto fallen",
+      "Garantizar que el embrague acople completamente y no se patine",
+      "Reducir la vibración del manubrio a altas velocidades",
+      "Aumentar automáticamente la velocidad máxima del motor"
+    ],
+    "correctAnswer": 1,
+    "category": "Mecánica"
+  },
+  {
+    "id": 3,
+    "question": "¿Con qué frecuencia se debe verificar la presión de aire de las llantas?",
+    "options": [
+      "Cada 6 meses",
+      "Al menos una vez a la semana o antes de un viaje largo",
+      "Únicamente cuando la llanta se observe visiblemente desinflada",
+      "Solo durante la Revisión Técnico-Mecánica anual"
+    ],
+    "correctAnswer": 1,
+    "category": "Mecánica"
+  },
+  {
+    "id": 4,
+    "question": "Si el pedal de freno trasero se siente \"esponjoso\" en un sistema hidráulico, ¿cuál es la causa más probable?",
+    "options": [
+      "La cadena de transmisión está demasiado tensa",
+      "Aire atrapado en el circuito del líquido de frenos",
+      "Exceso de aceite en el cárter del motor",
+      "El filtro de aire está sucio o tapado"
+    ],
+    "correctAnswer": 1,
+    "category": "Mecánica"
+  },
+  {
+    "id": 5,
+    "question": "¿Qué mide el indicador de viscosidad SAE en el aceite de motor (ej. 10W-40)?",
+    "options": [
+      "El nivel de octanaje que requiere la gasolina",
+      "La resistencia del fluido a fluir a distintas temperaturas",
+      "La cantidad exacta de kilómetros que dura el aceite",
+      "El porcentaje de aditivos detergentes presentes"
+    ],
+    "correctAnswer": 1,
+    "category": "Mecánica"
+  },
+  {
+    "id": 6,
+    "question": "¿Qué componente del kit de arrastre se desgasta con mayor rapidez si no se lubrica periódicamente?",
+    "options": [
+      "El tambor de freno",
+      "El disco de embrague",
+      "La cadena de transmisión",
+      "El eje de levas"
+    ],
+    "correctAnswer": 2,
+    "category": "Mecánica"
+  },
+  {
+    "id": 7,
+    "question": "¿Qué indica el código DOT grabado en el costado de una llanta de motocicleta?",
+    "options": [
+      "La fecha de fabricación (semana y año) y homologación",
+      "La presión máxima de aire en libras por pulgada cuadrada (PSI)",
+      "El tipo de aceite recomendado para el motor",
+      "El peso total del chasis de la motocicleta"
+    ],
+    "correctAnswer": 0,
+    "category": "Mecánica"
+  },
+  {
+    "id": 8,
+    "question": "¿Cuál es la función principal del filtro de aceite?",
+    "options": [
+      "Enfriar la gasolina antes de entrar al carburador o inyector",
+      "Retener impurezas y partículas metálicas en circulación",
+      "Regular la presión de las llantas traseras",
+      "Reducir el ruido del tubo de escape"
+    ],
+    "correctAnswer": 1,
+    "category": "Mecánica"
+  },
+  {
+    "id": 9,
+    "question": "¿Qué síntoma indica que la batería de la motocicleta está perdiendo su capacidad de carga?",
+    "options": [
+      "El motor se apaga repentinamente en quinta marcha",
+      "La luz principal baja de intensidad al tocar el pito/bocina en ralentí",
+      "El pedal de freno se endurece excesivamente",
+      "El humo del escape sale de color azul continuo"
+    ],
+    "correctAnswer": 1,
+    "category": "Mecánica"
+  },
+  {
+    "id": 10,
+    "question": "¿Cuál es el riesgo de conducir con la cadena de transmisión demasiado tensionada?",
+    "options": [
+      "Pérdida total de líquido de frenos",
+      "Desgaste prematuro de los rodamientos del eje de salida y rotura de cadena",
+      "Aumento desmedido de la presión de las llantas",
+      "Fallo en el sistema de luces direccionales"
+    ],
+    "correctAnswer": 1,
+    "category": "Mecánica"
+  },
+  {
+    "id": 11,
+    "question": "¿Qué tipo de líquido se debe utilizar para reponer el nivel en el depósito de freno hidráulico?",
+    "options": [
+      "Aceite de motor 20W-50",
+      "Agua destilada con refrigerante",
+      "Líquido de frenos de la especificación recomendada (DOT 3, DOT 4, etc.)",
+      "Valvolina de caja de cambios"
+    ],
+    "correctAnswer": 2,
+    "category": "Mecánica"
+  },
+  {
+    "id": 12,
+    "question": "¿Qué significa la sigla ABS en el sistema de frenos de una motocicleta?",
+    "options": [
+      "Sistema de Aceleración Bajos Sensores",
+      "Sistema de Antibloqueo de Ruedas (Anti-lock Braking System)",
+      "Control Automático de Brillo en Salpicadero",
+      "Ajuste Base de Suspensión Trasera"
+    ],
+    "correctAnswer": 1,
+    "category": "Mecánica"
+  },
+  {
+    "id": 13,
+    "question": "¿Qué ocurre si se llena el motor con más aceite del nivel máximo permitido en la varilla/visor?",
+    "options": [
+      "El motor genera el doble de potencia",
+      "Se pueden dañar retenes/sellos por sobrepresión y generar fugas",
+      "La motocicleta consume un 50% menos de combustible",
+      "Las pastillas de freno se desgastan más rápido"
+    ],
+    "correctAnswer": 1,
+    "category": "Mecánica"
+  },
+  {
+    "id": 14,
+    "question": "¿Qué elemento de la motocicleta transmite la fuerza desde la caja de cambios hasta la rueda trasera?",
+    "options": [
+      "El carburador",
+      "El kit de arrastre (o cardán/correa)",
+      "El alternador",
+      "La horquilla telescópica"
+    ],
+    "correctAnswer": 1,
+    "category": "Mecánica"
+  },
+  {
+    "id": 15,
+    "question": "¿Qué comprobación debe hacerse en los amortiguadores delanteros (barras)?",
+    "options": [
+      "Verificar que no presenten fugas de aceite por los retenedores",
+      "Pintarlos cada tres meses para evitar oxidación",
+      "Cambiarles el resorte cada 1.000 kilómetros",
+      "Llenarlos de aire a 50 PSI semanalmente"
+    ],
+    "correctAnswer": 0,
+    "category": "Mecánica"
+  },
+  {
+    "id": 16,
+    "question": "¿Cuál es la profundidad mínima del grabado (labrado) legal en las llantas de una moto en Colombia?",
+    "options": [
+      "0.5 mm",
+      "1.0 mm",
+      "3.0 mm",
+      "5.0 mm"
+    ],
+    "correctAnswer": 1,
+    "category": "Mecánica"
+  },
+  {
+    "id": 17,
+    "question": "Si el motor de la moto no enciende y no da marcha al presionar el botón de encendido, ¿qué se debe revisar primero?",
+    "options": [
+      "La presión de la llanta delantera",
+      "El interruptor de corte de corriente (run) y el estado de la batería",
+      "El nivel de líquido de refrigerante",
+      "El desgaste de la banda de freno trasera"
+    ],
+    "correctAnswer": 1,
+    "category": "Mecánica"
+  },
+  {
+    "id": 18,
+    "question": "¿Qué función cumple la bujía en un motor de gasolina de cuatro tiempos?",
+    "options": [
+      "Regular la mezcla de aire y combustible",
+      "Generar la chispa para inflamar la mezcla de aire y combustible",
+      "Inyectar la gasolina dentro del cilindro",
+      "Medir la temperatura del aceite de motor"
+    ],
+    "correctAnswer": 1,
+    "category": "Mecánica"
+  },
+  {
+    "id": 19,
+    "question": "¿Cada cuánto tiempo se sugiere limpiar y lubricar la cadena de la motocicleta en uso urbano regular?",
+    "options": [
+      "Cada 500 a 1.000 km (o tras lavar la moto / andar bajo lluvia)",
+      "Una vez al año durante el mantenimiento general",
+      "Únicamente cuando empiece a generar ruidos metálicos fuertes",
+      "Cada 10.000 km sin excepción"
+    ],
+    "correctAnswer": 0,
+    "category": "Mecánica"
+  },
+  {
+    "id": 20,
+    "question": "¿Qué provoca un filtro de aire sucio o saturado en el motor?",
+    "options": [
+      "Aumento significativo del consumo de combustible y pérdida de potencia",
+      "Bloqueo instantáneo del freno delantero",
+      "Incremento indeseado de la tensión de la cadena",
+      "Falla en las luces direccionales traseras"
+    ],
+    "correctAnswer": 0,
+    "category": "Mecánica"
+  },
+  {
+    "id": 21,
+    "question": "¿Qué es el \"efecto fading\" o fatiga en los frenos?",
+    "options": [
+      "La pérdida de eficacia del frenado por sobrecalentamiento del sistema",
+      "La aceleración involuntaria del motor en bajadas",
+      "El estiramiento repentino de la guaya del acelerador",
+      "La deformación del rin tras impactar un bache"
+    ],
+    "correctAnswer": 0,
+    "category": "Mecánica"
+  },
+  {
+    "id": 22,
+    "question": "En una motocicleta con embrague manual, ¿qué sucede si la guaya no tiene holgura y queda muy tensionada?",
+    "options": [
+      "El motor se apaga cada vez que se pone primera marcha",
+      "Los discos de embrague pueden quedar rozando y patinar permanentemente",
+      "El freno trasero se activa de manera automática",
+      "La batería se descarga por cortocircuito"
+    ],
+    "correctAnswer": 1,
+    "category": "Mecánica"
+  },
+  {
+    "id": 23,
+    "question": "¿Qué tipo de mantenimiento requiere una batería libre de mantenimiento?",
+    "options": [
+      "Agregar agua de grifo semanalmente",
+      "Mantener los bornes limpios y apretados, y verificar el voltaje",
+      "Cambiar el ácido interno cada 3.000 km",
+      "Llenarla de aceite multiusos cada mes"
+    ],
+    "correctAnswer": 1,
+    "category": "Mecánica"
+  },
+  {
+    "id": 24,
+    "question": "¿Qué componente amortigua los impactos e irregularidades del terreno en la rueda trasera?",
+    "options": [
+      "El monoshock o los amortiguadores traseros",
+      "El disco de freno",
+      "El catalizador de escape",
+      "La maza del embrague"
+    ],
+    "correctAnswer": 0,
+    "category": "Mecánica"
+  },
+  {
+    "id": 25,
+    "question": "¿Cuál es la función del kit de cunas de dirección en el chasis de la motocicleta?",
+    "options": [
+      "Ajustar la presión de aire de las llantas",
+      "Permitir un giro suave y preciso del manubrio sin juego excesivo",
+      "Conectar el cable del velocímetro a la rueda trasera",
+      "Filtrar las impurezas de la gasolina"
+    ],
+    "correctAnswer": 1,
+    "category": "Mecánica"
+  },
+  {
+    "id": 26,
+    "question": "¿Qué síntoma indica que las pastillas de freno están demasiado desgastadas?",
+    "options": [
+      "Un chirrido metálico al frenar y disminución del nivel de líquido de frenos",
+      "Humo blanco por el tubo de escape al acelerar",
+      "Dureza excesiva al accionar el pedal de cambios",
+      "Pérdida de intensidad en el faro delantero"
+    ],
+    "correctAnswer": 0,
+    "category": "Mecánica"
+  },
+  {
+    "id": 27,
+    "question": "¿Qué función cumple el termostato en una motocicleta refrigerada por líquido?",
+    "options": [
+      "Medir la presión de las llantas durante la marcha",
+      "Regular el paso de líquido refrigerante para mantener la temperatura ideal del motor",
+      "Encender las luces de parqueo cuando la moto se detiene",
+      "Controlar el volumen de sonido del pito"
+    ],
+    "correctAnswer": 1,
+    "category": "Mecánica"
+  },
+  {
+    "id": 28,
+    "question": "¿Qué significa que una llanta sea \"Tubeless\"?",
+    "options": [
+      "Que es exclusiva para terrenos de barro y destapado",
+      "Que no requiere neumático (cámara de aire) interno",
+      "Que no se puede reparar bajo ninguna circunstancia",
+      "Que está hecha exclusivamente de caucho reciclado"
+    ],
+    "correctAnswer": 1,
+    "category": "Mecánica"
+  },
+  {
+    "id": 29,
+    "question": "¿Qué consecuencia trae conducir con la suspensión delantera demasiado blanda o vencida?",
+    "options": [
+      "Mayor estabilidad en curvas a alta velocidad",
+      "Hundimiento excesivo al frenar (frenado inestable) y pérdida de adherencia",
+      "Reducción en el consumo de aceite de motor",
+      "Mayor duración de la cadena de transmisión"
+    ],
+    "correctAnswer": 1,
+    "category": "Mecánica"
+  },
+  {
+    "id": 30,
+    "question": "¿Qué se debe verificar en el visor transparente del depósito de líquido de frenos?",
+    "options": [
+      "El color de la pintura del manubrio",
+      "Que el nivel de líquido esté entre las marcas de mínimo y máximo",
+      "La presencia de sedimentos de gasolina",
+      "El kilometraje acumulado de la motocicleta"
+    ],
+    "correctAnswer": 1,
+    "category": "Mecánica"
+  },
+  {
+    "id": 31,
+    "question": "¿Qué es el octanaje en la gasolina empleada para motocicletas?",
+    "options": [
+      "El peso por litro del combustible",
+      "La capacidad detonante y resistencia a la autoexplosión (detonación prematura)",
+      "La cantidad de alcohol carburante mezclado con el agua",
+      "La temperatura exacta a la que se congela el combustible"
+    ],
+    "correctAnswer": 1,
+    "category": "Mecánica"
+  },
+  {
+    "id": 32,
+    "question": "¿Qué causa común hace que la motocicleta tire o se desvíe hacia un lado al soltar levemente el manubrio?",
+    "options": [
+      "Desalineación de las ruedas, chasís doblado o presión desigual en las llantas",
+      "Filtro de combustible parcialmente obstruido",
+      "Nivel bajo de aceite en la caja de cambios",
+      "Guaya del acelerador demasiado desajustada"
+    ],
+    "correctAnswer": 0,
+    "category": "Mecánica"
+  },
+  {
+    "id": 33,
+    "question": "¿Qué componente convierte la energía mecánica del motor en energía eléctrica para cargar la batería?",
+    "options": [
+      "El estator / alternador",
+      "El carburador",
+      "El cilindro maestro de freno",
+      "La bujía de encendido"
+    ],
+    "correctAnswer": 0,
+    "category": "Mecánica"
+  },
+  {
+    "id": 34,
+    "question": "¿Qué se debe hacer si las llantas presentan desgaste irregular o en forma de \"escalón\"?",
+    "options": [
+      "Aumentar el doble de la presión de aire recomendada",
+      "Revisar la presión de aire habitual, suspensión y alineación del rin",
+      "Aplicar grasa sobre la banda de rodamiento",
+      "Intercambiar la llanta delantera por la trasera inmediatamente"
+    ],
+    "correctAnswer": 1,
+    "category": "Mecánica"
+  },
+  {
+    "id": 35,
+    "question": "¿Cuál es el papel del fusible principal en el sistema eléctrico de la motocicleta?",
+    "options": [
+      "Regular la velocidad del motor en descensos",
+      "Proteger el circuito eléctrico cortando el paso de corriente ante una sobrecarga",
+      "Mantener encendido el testigo del neutral",
+      "Incrementar el voltaje que llega a la bujía"
+    ],
+    "correctAnswer": 1,
+    "category": "Mecánica"
+  },
+  {
+    "id": 36,
+    "question": "¿Por qué es inadecuado usar agua de grifo en el sistema de refrigeración líquida del motor?",
+    "options": [
+      "Porque oxida los conductos internos y hierve a menor temperatura que el refrigerante",
+      "Porque desgasta los discos de embrague inmediatamente",
+      "Porque apaga el sistema eléctrico de las direccionales",
+      "Porque aumenta el peso de la motocicleta de forma drástica"
+    ],
+    "correctAnswer": 0,
+    "category": "Mecánica"
+  },
+  {
+    "id": 37,
+    "question": "¿Qué función cumple el catalizador en el sistema de escape de una moto moderna?",
+    "options": [
+      "Aumentar la potencia del motor a altas revoluciones",
+      "Reducir las emisiones de gases contaminantes mediante reacciones químicas",
+      "Filtrar el aceite que ingresa al motor",
+      "Silenciar el sonido sin importar la velocidad"
+    ],
+    "correctAnswer": 1,
+    "category": "Mecánica"
+  },
+  {
+    "id": 38,
+    "question": "¿Qué verifica la prueba de holgura de válvulas durante el mantenimiento del motor?",
+    "options": [
+      "Que las llantas tengan el agarre suficiente",
+      "La separación correcta entre los balancines y las válvulas para un correcto sellado",
+      "El ajuste de las bandas del freno trasero",
+      "La alineación de la luz del faro principal"
+    ],
+    "correctAnswer": 1,
+    "category": "Mecánica"
+  },
+  {
+    "id": 39,
+    "question": "¿Qué indica la presencia de humo negro saliendo por el escape de una motocicleta a gasolina?",
+    "options": [
+      "Entrada de líquido refrigerante a la cámara de combustión",
+      "Mezcla rica (exceso de combustible o falta de aire)",
+      "Desgaste severo en los anillos del pistón",
+      "Aceite quemándose en el cilindro"
+    ],
+    "correctAnswer": 1,
+    "category": "Mecánica"
+  },
+  {
+    "id": 40,
+    "question": "¿Cuál es la función del kit de arrastre en una moto manual?",
+    "options": [
+      "Detener la marcha mediante fricción",
+      "Transmitir la potencia del motor a la rueda trasera",
+      "Regular la entrada de aire al carburador",
+      "Estabilizar las barras de suspensión delantera"
+    ],
+    "correctAnswer": 1,
+    "category": "Mecánica"
+  },
+  {
+    "id": 41,
+    "question": "¿Qué se debe inspeccionar en los radios de una rueda tipo radiada?",
+    "options": [
+      "Que no estén flojos, rotos o con tensión desuniforme",
+      "Que estén cubiertos de aceite mineral denso",
+      "Que giren de manera independiente a la manzana",
+      "Que sean de diferente grosor en el lado izquierdo y derecho"
+    ],
+    "correctAnswer": 0,
+    "category": "Mecánica"
+  },
+  {
+    "id": 42,
+    "question": "¿Qué ocurre si se usa un aceite de motor para autos en una motocicleta con embrague sumergido en aceite (húmedo)?",
+    "options": [
+      "El motor gana más caballos de fuerza",
+      "Los discos de embrague se pueden patinar debido a los modificadores de fricción",
+      "La batería se descarga rápidamente",
+      "El freno delantero pierde presión hidráulica"
+    ],
+    "correctAnswer": 1,
+    "category": "Mecánica"
+  },
+  {
+    "id": 43,
+    "question": "¿Cuál es la función del regulador/rectificador en la motocicleta?",
+    "options": [
+      "Cambiar las marchas de manera automática",
+      "Convertir la corriente alterna en continua y regular el voltaje hacia la batería",
+      "Limpiar los gases que emite el exosto",
+      "Medir el nivel de combustible restante en el tanque"
+    ],
+    "correctAnswer": 1,
+    "category": "Mecánica"
+  },
+  {
+    "id": 44,
+    "question": "¿Qué provoca la desalineación de la Rueda Trasera tras tensionar la cadena?",
+    "options": [
+      "Desgaste irregular de llantas y rodamientos, y comportamiento inestable en curva",
+      "Pérdida instantánea del refrigerante",
+      "Que las luces direccionales parpadeen más rápido",
+      "Un aumento involuntario del nivel de aceite del motor"
+    ],
+    "correctAnswer": 0,
+    "category": "Mecánica"
+  },
+  {
+    "id": 45,
+    "question": "¿Para qué sirve el testigo de presión de aceite (rojo) en el tablero de instrumentos?",
+    "options": [
+      "Avisar que se debe cambiar la llanta trasera",
+      "Advertir sobre la falta de presión en el sistema de lubricación del motor",
+      "Indicar que el nivel de gasolina llegó a la reserva",
+      "Confirmar que el freno ABS está desactivado"
+    ],
+    "correctAnswer": 1,
+    "category": "Mecánica"
+  },
+  {
+    "id": 46,
+    "question": "¿Qué tipo de desgaste se genera en una llanta inflada por encima de la presión recomendada?",
+    "options": [
+      "Desgaste excesivo únicamente en los bordes laterales",
+      "Desgaste prematuro en el centro de la banda de rodamiento",
+      "Desgaste exclusivo en el rin metálico",
+      "No sufre ningún tipo de desgaste"
+    ],
+    "correctAnswer": 1,
+    "category": "Mecánica"
+  },
+  {
+    "id": 47,
+    "question": "¿Qué función cumplen los orings o retenedores de goma en las cadenas de transmisión modernas?",
+    "options": [
+      "Evitar que la cadena toque la rueda trasera",
+      "Retener la lubricación interna entre los pasadores y bujes de la cadena",
+      "Generar resistencia para reducir la velocidad",
+      "Conectar la cadena con la batería para evitar estática"
+    ],
+    "correctAnswer": 1,
+    "category": "Mecánica"
+  },
+  {
+    "id": 48,
+    "question": "¿Qué componente del carburador se encarga de regular el paso de combustible en marcha mínima (ralentí)?",
+    "options": [
+      "El surtidor/chicler de alta",
+      "El chicler/surtidor de baja (o piloto)",
+      "El flotador de la llanta",
+      "La guaya del freno delantero"
+    ],
+    "correctAnswer": 1,
+    "category": "Mecánica"
+  },
+  {
+    "id": 49,
+    "question": "¿Qué síntoma se presenta cuando la suspensión trasera tiene el rebote desajustado o muy blando?",
+    "options": [
+      "La motocicleta oscila o \"bambolea\" de forma insegura al pasar por baches o curvas",
+      "El acelerador se traba en posición de máxima velocidad",
+      "El motor consume más líquido refrigerante",
+      "Las luces de freno permanecen encendidas permanentemente"
+    ],
+    "correctAnswer": 0,
+    "category": "Mecánica"
+  },
+  {
+    "id": 50,
+    "question": "¿Cuál es la función del interruptor del soporte lateral (pata de cabra/gato lateral) en las motos modernas?",
+    "options": [
+      "Bloquear la dirección automáticamente",
+      "Impedir que el motor arranque o avance si la pata está desplegada y con marcha engranada",
+      "Desinflar la llanta trasera para evitar robos",
+      "Enfriar el motor mientras la moto está parqueada"
+    ],
+    "correctAnswer": 1,
+    "category": "Mecánica"
+  },
+  {
+    "id": 51,
+    "question": "Ante una frenada de emergencia sobre pavimento seco, ¿cuál es la técnica correcta?",
+    "options": [
+      "Accionar únicamente el freno trasero a fondo hasta bloquear la rueda",
+      "Aplicar ambos frenos progresivamente y con firmeza, dosificando más el delantero sin bloquear",
+      "Presionar el embrague y no tocar ninguno de los dos frenos",
+      "Frenar únicamente con el freno delantero soltando el manubrio"
+    ],
+    "correctAnswer": 1,
+    "category": "Situaciones de conducción"
+  },
+  {
+    "id": 52,
+    "question": "¿Qué se debe hacer si la motocicleta empieza a experimentar un bamboleo violento del manubrio (tank slapper)?",
+    "options": [
+      "Frenar en seco con el freno delantero inmediatamente",
+      "Mantener la calma, sujetar el manubrio con firmeza sin rigidez extrema y reducir suavemente el acelerador",
+      "Pararse sobre los posapiés y acelerar a fondo",
+      "Saltar de la motocicleta de inmediato"
+    ],
+    "correctAnswer": 1,
+    "category": "Situaciones de conducción"
+  },
+  {
+    "id": 53,
+    "question": "¿Cómo influye llevar un pasajero (pato/parrillero) en la distancia de frenado de la motocicleta?",
+    "options": [
+      "La distancia de frenado se reduce a la mitad",
+      "La distancia de frenado aumenta debido al mayor peso e inercia",
+      "La distancia de frenado permanece exactamente igual",
+      "No afecta la distancia, pero anula el freno delantero"
+    ],
+    "correctAnswer": 1,
+    "category": "Situaciones de conducción"
+  },
+  {
+    "id": 54,
+    "question": "¿Cuál es la conducta recomendada al conducir con lluvia o sobre asfalto mojado?",
+    "options": [
+      "Conducir a la misma velocidad que en seco para no perder tiempo",
+      "Reducir la velocidad, aumentar la distancia de seguimiento y evitar inclinaciones abruptas",
+      "Transitar pegado al centro de la vía donde hay acumulaciones de aceite",
+      "Desinflar totalmente ambas llantas para tener mayor superficie de contacto"
+    ],
+    "correctAnswer": 1,
+    "category": "Situaciones de conducción"
+  },
+  {
+    "id": 55,
+    "question": "¿Qué es el fenómeno del \"aquaplaning\" o hidroplaneo?",
+    "options": [
+      "El recalentamiento del motor por cruzar un charco profundo",
+      "La pérdida de contacto de la llanta con el asfalto debido a una capa de agua interpuesta",
+      "El frenado automático de la rueda trasera al entrar al agua",
+      "El deslizamiento voluntario de la motocicleta en curvas mojadas"
+    ],
+    "correctAnswer": 1,
+    "category": "Situaciones de conducción"
+  },
+  {
+    "id": 56,
+    "question": "Al tomar una curva, ¿en qué momento se debe realizar la mayor parte de la reducción de velocidad?",
+    "options": [
+      "Justo en el punto medio (ápice) de la curva",
+      "Antes de ingresar a la curva, en línea recta",
+      "Al momento de salir de la curva acelerando",
+      "No se debe frenar ni reducir velocidad en ningún momento"
+    ],
+    "correctAnswer": 1,
+    "category": "Situaciones de conducción"
+  },
+  {
+    "id": 57,
+    "question": "¿Qué es el \"punto ciego\" o ángulo muerto respecto a otros vehículos en la vía?",
+    "options": [
+      "La zona alrededor del vehículo que no se puede visibilizar mediante los espejos retrovisores",
+      "La luz alta del vehículo que viene en sentido contrario de noche",
+      "La zona oscura dentro de un túnel sin iluminación",
+      "La franja peatonal señalizada en una intersección"
+    ],
+    "correctAnswer": 0,
+    "category": "Situaciones de conducción"
+  },
+  {
+    "id": 58,
+    "question": "¿Qué técnica ayuda a inclinar la motocicleta con mayor agilidad en curvas a velocidades superiores a 30 km/h?",
+    "options": [
+      "El contravolante (empujar suavemente el manubrio del lado hacia donde se quiere girar)",
+      "Halación de la guaya del embrague",
+      "Tirar del freno de mano",
+      "Bloquear la rueda trasera con el pedal de freno"
+    ],
+    "correctAnswer": 0,
+    "category": "Situaciones de conducción"
+  },
+  {
+    "id": 59,
+    "question": "¿Cuál es la distancia de seguimiento prudente (en tiempo) con respecto al vehículo que antecede en condiciones normales?",
+    "options": [
+      "0.5 segundos",
+      "Mínimo 3 segundos",
+      "10 segundos",
+      "30 segundos"
+    ],
+    "correctAnswer": 1,
+    "category": "Situaciones de conducción"
+  },
+  {
+    "id": 60,
+    "question": "¿Por qué es peligroso transitar sobre las líneas blancas o amarillas pintadas en el asfalto cuando está lloviendo?",
+    "options": [
+      "Porque se pueden manchar las llantas de pintura",
+      "Porque la pintura vial reduce drásticamente la adherencia y se vuelve extremadamente resbaladiza",
+      "Porque la ley prohíbe pisar las líneas en todo momento",
+      "Porque activa los sensores de velocidad de la vía"
+    ],
+    "correctAnswer": 1,
+    "category": "Situaciones de conducción"
+  },
+  {
+    "id": 61,
+    "question": "Al conducir de noche en carretera, ¿qué acción se debe tomar ante el encandilamiento de un vehículo en sentido contrario?",
+    "options": [
+      "Mirar fijamente las luces del otro vehículo para medir la distancia",
+      "Dirigir la mirada hacia la línea de demarcación derecha de la vía y reducir la velocidad",
+      "Encender las luces altas y acelerar para pasarlo rápido",
+      "Cerrar los ojos intermitentemente por varios segundos"
+    ],
+    "correctAnswer": 1,
+    "category": "Situaciones de conducción"
+  },
+  {
+    "id": 62,
+    "question": "¿Cómo se debe cruzar un riel de tren o una junta de dilatación metálica en un puente cuando se va en moto?",
+    "options": [
+      "De forma paralela al riel o junta",
+      "Lo más perpendicular (cercano a 90 grados) posible y con la moto erguida",
+      "Acelerando a fondo e inclinando la moto",
+      "Frenando únicamente con el freno delantero sobre la superficie metálica"
+    ],
+    "correctAnswer": 1,
+    "category": "Situaciones de conducción"
+  },
+  {
+    "id": 63,
+    "question": "¿Qué postura debe adoptar el pasajero o acompañante en una curva?",
+    "options": [
+      "Inclinar su cuerpo en sentido contrario a la curva para compensar",
+      "Acompañar suavemente el movimiento del conductor sin hacer movimientos bruscos",
+      "Levantarse de los posapiés y sujetar los hombros del conductor fuertemente",
+      "Sacar la pierna hacia el lado interior de la curva"
+    ],
+    "correctAnswer": 1,
+    "category": "Situaciones de conducción"
+  },
+  {
+    "id": 64,
+    "question": "¿Cuál es la causa principal de derrape de la rueda trasera al reducir marchas (bajar cambios) abruptamente?",
+    "options": [
+      "El bloqueo por el freno de motor en exceso (golpe de gas no realizado o falta de embrague antirrebote)",
+      "El aumento súbito de la presión de aire en la rueda",
+      "La desconexión del faro delantero",
+      "La falla del sistema de dirección"
+    ],
+    "correctAnswer": 0,
+    "category": "Situaciones de conducción"
+  },
+  {
+    "id": 65,
+    "question": "Si se revienta la llanta trasera mientras se conduce a velocidad media, ¿cuál es la reacción adecuada?",
+    "options": [
+      "Aplicar el freno delantero a fondo inmediatamente",
+      "Sujetar con firmeza el manubrio, no frenar bruscamente y dejar que la moto pierda velocidad progresivamente",
+      "Acelerar para intentar mantener el equilibrio",
+      "Inclinarse fuertemente hacia un costado"
+    ],
+    "correctAnswer": 1,
+    "category": "Situaciones de conducción"
+  },
+  {
+    "id": 66,
+    "question": "¿Por qué se debe evitar transitar por el centro del carril detrás de otros vehículos, especialmente en semáforos o trancones?",
+    "options": [
+      "Porque el centro del carril suele acumular residuos de aceite y grasa de los carros",
+      "Porque está prohibido por el código de tránsito",
+      "Porque en esa zona las llantas se desgastan más rápido",
+      "Porque la moto pierde potencia en el centro del carril"
+    ],
+    "correctAnswer": 0,
+    "category": "Situaciones de conducción"
+  },
+  {
+    "id": 67,
+    "question": "¿Qué es la \"frenada combinada\" o CBS en motocicletas?",
+    "options": [
+      "Un sistema que distribuye parte de la fuerza de frenado a ambas ruedas al accionar una sola palanca/pedal",
+      "Un dispositivo que acelera la moto mientras se frena",
+      "Una maniobra donde se usan las manos y los pies para tocar el suelo",
+      "El uso alternado de luces y pito para detenerse"
+    ],
+    "correctAnswer": 0,
+    "category": "Situaciones de conducción"
+  },
+  {
+    "id": 68,
+    "question": "¿Cuál es el principal peligro de conducir paralelo a un camión o tractomula de gran tamaño?",
+    "options": [
+      "Que el camión consuma el aire que respira el motociclista",
+      "Los grandes puntos ciegos del conductor del camión y las turbulencias de aire",
+      "Que la moto acelere automáticamente por succión",
+      "El ruido que genera el motor diésel"
+    ],
+    "correctAnswer": 1,
+    "category": "Situaciones de conducción"
+  },
+  {
+    "id": 69,
+    "question": "¿Cómo se debe actuar ante la presencia de gravilla o arena suelta en una curva?",
+    "options": [
+      "Inclinar más la motocicleta y acelerar",
+      "Mantener la moto lo más erguida posible, evitar frenazos bruscos y trazar con suavidad",
+      "Frenar con el freno delantero al máximo en medio de la gravilla",
+      "Apagar el motor de inmediato"
+    ],
+    "correctAnswer": 1,
+    "category": "Situaciones de conducción"
+  },
+  {
+    "id": 70,
+    "question": "¿Qué se debe hacer antes de realizar un cambio de carril o un giro?",
+    "options": [
+      "Mirar por los espejos, verificar el punto ciego girando levemente la cabeza y colocar la direccional",
+      "Acelerar a fondo y tocar el pito sin poner direccionales",
+      "Colocar la luz alta únicamente",
+      "Sacar el pie izquierdo para avisar a los demás vehículos"
+    ],
+    "correctAnswer": 0,
+    "category": "Situaciones de conducción"
+  },
+  {
+    "id": 71,
+    "question": "¿Cuál es la manera correcta de subir un resalto o \"resalto parabólico\" en motocicleta?",
+    "options": [
+      "Acelerando fuertemente justo encima del resalto",
+      "Reduciendo la velocidad antes del resalto, pasar con la moto recta y acelerar suavemente al salir",
+      "Frenando a fondo con la rueda delantera mientras se pasa el resalto",
+      "Cruzando el resalto totalmente inclinado de lado a lado"
+    ],
+    "correctAnswer": 1,
+    "category": "Situaciones de conducción"
+  },
+  {
+    "id": 72,
+    "question": "¿Qué efecto tiene el peso excesivo del equipaje colocado en la parte trasera (parrilla muy cargada) de la moto?",
+    "options": [
+      "Aliviana la dirección, disminuye el agarre de la rueda delantera y altera la estabilidad",
+      "Aumenta la potencia del motor a la mitad",
+      "Mejora la efectividad del freno delantero",
+      "Permite alcanzar mayor velocidad en curvas"
+    ],
+    "correctAnswer": 0,
+    "category": "Situaciones de conducción"
+  },
+  {
+    "id": 73,
+    "question": "En un descenso prolongado por montaña, ¿qué técnica evita el sobrecalentamiento de los frenos?",
+    "options": [
+      "Apagar el motor para bajar en neutro",
+      "Usar el freno de motor (engranar marchas bajas) en combinación con frenadas cortas y dosificadas",
+      "Dejar presionado el freno trasero durante todo el descenso sin soltarlo",
+      "Bajar a máxima velocidad para que el aire enfríe los discos"
+    ],
+    "correctAnswer": 1,
+    "category": "Situaciones de conducción"
+  },
+  {
+    "id": 74,
+    "question": "¿Qué posición deben tener los pies del conductor sobre los posapiés mientras transita?",
+    "options": [
+      "Con los talones colgados apuntando hacia el suelo",
+      "Apoyados sobre la parte media/metatarso del pie, paralelos a la moto y listos para accionar mandos",
+      "Con las puntas abiertas hacia afuera rozando el asfalto",
+      "Apoyados en los defensas del motor"
+    ],
+    "correctAnswer": 1,
+    "category": "Situaciones de conducción"
+  },
+  {
+    "id": 75,
+    "question": "¿Qué debe hacer un motociclista al aproximarse a una intersección con semáforo en verde?",
+    "options": [
+      "Acelerar al máximo para pasar antes de que cambie",
+      "Mantener la precaución, reducir ligeramente y estar atento a peatones o vehículos que crucen en rojo",
+      "Cerrar los ojos y continuar al mismo ritmo",
+      "Tocar el pito de forma continua sin mirar a los lados"
+    ],
+    "correctAnswer": 1,
+    "category": "Situaciones de conducción"
+  },
+  {
+    "id": 76,
+    "question": "¿Qué riesgo genera la conducción con cansancio o fatiga acumulada?",
+    "options": [
+      "Disminución significativa en los tiempos de reacción y pérdida de concentración",
+      "Incremento del rendimiento del motor",
+      "Bloqueo de las luces de la motocicleta",
+      "Reducción automática de la distancia de frenado"
+    ],
+    "correctAnswer": 0,
+    "category": "Situaciones de conducción"
+  },
+  {
+    "id": 77,
+    "question": "¿Por qué es riesgoso conducir pegado a la parte trasera de un vehículo grande que no permite ver adelante?",
+    "options": [
+      "Porque el vehículo delantero le resta gasolina a la moto",
+      "Porque se pierde visibilidad sobre baches, obstáculos u otros vehículos detenidos",
+      "Porque la motocicleta se recalienta instantáneamente",
+      "Porque el viento rasga la chaqueta del motociclista"
+    ],
+    "correctAnswer": 1,
+    "category": "Situaciones de conducción"
+  },
+  {
+    "id": 78,
+    "question": "¿Cuál es la forma correcta de reaccionar si la motocicleta empieza a deslizar (derrapar) de la rueda trasera sobre barro?",
+    "options": [
+      "Clavar el freno delantero a fondo",
+      "Mantener la calma, no frenar bruscamente, corregir suavemente con el manubrio y controlar el acelerador",
+      "Saltarse de la motocicleta hacia atrás",
+      "Girar el manubrio en sentido totalmente contrario y acelerar al máximo"
+    ],
+    "correctAnswer": 1,
+    "category": "Situaciones de conducción"
+  },
+  {
+    "id": 79,
+    "question": "¿Qué maniobra es altamente peligrosa al adelantar a otro vehículo?",
+    "options": [
+      "Adelantar por el carril izquierdo habiendo colocado la direccional",
+      "Adelantar por la derecha o en curvas de visibilidad ciega",
+      "Verificar los espejos antes de salir del carril",
+      "Mantener la distancia de seguridad lateral"
+    ],
+    "correctAnswer": 1,
+    "category": "Situaciones de conducción"
+  },
+  {
+    "id": 80,
+    "question": "¿Cómo afecta el viento lateral fuerte la conducción en carretera?",
+    "options": [
+      "Puede desplazar la motocicleta lateralmente fuera de su trayectoria",
+      "Aumenta la capacidad de frenado del freno delantero",
+      "Limpia el filtro de aire automáticamente",
+      "No produce ningún efecto en las motocicletas"
+    ],
+    "correctAnswer": 0,
+    "category": "Situaciones de conducción"
+  },
+  {
+    "id": 81,
+    "question": "¿Qué se recomienda al conducir con niebla densa?",
+    "options": [
+      "Encender la luz alta para encandilar la niebla",
+      "Usar luz baja (y exploradoras si tiene), reducir la velocidad y guiarse por la señalización horizontal",
+      "Aumentar la velocidad para salir rápido de la zona de niebla",
+      "Conducir por el berma a alta velocidad con las luces apagadas"
+    ],
+    "correctAnswer": 1,
+    "category": "Situaciones de conducción"
+  },
+  {
+    "id": 82,
+    "question": "¿Cuál es el peligro de llevar la manigueta del freno delantero continuamente presionada \"por prevención\"?",
+    "options": [
+      "Encender las luces de parqueo",
+      "Sobrecalentar el líquido de frenos, cristalizar pastillas y desgastar prematuramente el sistema",
+      "Gastar la batería por completo en 5 minutos",
+      "Desalinear la rueda delantera"
+    ],
+    "correctAnswer": 1,
+    "category": "Situaciones de conducción"
+  },
+  {
+    "id": 83,
+    "question": "Al entrar a una rotonda (glorieta), ¿quién tiene la prelación de paso según las normas de conducción general?",
+    "options": [
+      "El vehículo que va a ingresar a la glorieta",
+      "El vehículo que ya se encuentra circulando dentro de la glorieta",
+      "El vehículo de mayor tamaño sin importar dónde esté",
+      "La motocicleta que avance a mayor velocidad"
+    ],
+    "correctAnswer": 1,
+    "category": "Situaciones de conducción"
+  },
+  {
+    "id": 84,
+    "question": "¿Qué técnica es recomendada para realizar un giro cerrado a baja velocidad (ej. maniobras en parqueaderos)?",
+    "options": [
+      "Inclinar el cuerpo hacia afuera de la curva (contrapesado) manteniendo el motor con suave tracción",
+      "Poner el pie en el freno delantero a fondo",
+      "Apagar el motor y empujar la moto con los pies acelerando",
+      "Bloquear completamente la dirección hacia un lado a alta velocidad"
+    ],
+    "correctAnswer": 0,
+    "category": "Situaciones de conducción"
+  },
+  {
+    "id": 85,
+    "question": "¿Qué beneficio ofrece el uso de indumentaria con protecciones homologadas (chaqueta, guantes, rodilleras)?",
+    "options": [
+      "Evita que la motocicleta consuma demasiado aceite",
+      "Absorbe la energía del impacto y reduce la severidad de las abrasiones en caso de caída",
+      "Exime al motociclista de presentar la Revisión Técnico-Mecánica",
+      "Permite conducir a mayor velocidad de la permitida por la ley"
+    ],
+    "correctAnswer": 1,
+    "category": "Situaciones de conducción"
+  },
+  {
+    "id": 86,
+    "question": "¿Cuál es la forma adecuada de detener la motocicleta en una pendiente ascendente (subida)?",
+    "options": [
+      "Sostener la moto con el freno trasero (o pedal) mientras se equilibra con el pie izquierdo en el suelo",
+      "Soltar todos los frenos y acelerar a fondo sin meter cambio",
+      "Apoyar ambos pies en el aire y soltar la manigueta de embrague",
+      "Cruzar la moto transversalmente bloqueando todo el carril"
+    ],
+    "correctAnswer": 0,
+    "category": "Situaciones de conducción"
+  },
+  {
+    "id": 87,
+    "question": "¿Por qué es importante mirar hacia \"donde se quiere ir\" (fijación de la mirada) al conducir una moto?",
+    "options": [
+      "Porque el cuerpo y la motocicleta tienden a dirigirse de forma natural hacia donde se enfoca la visión",
+      "Porque así se evita que los retrovisores se desajusten",
+      "Porque es un requisito legal del Código de Tránsito",
+      "Para evitar mirar el velocímetro en todo momento"
+    ],
+    "correctAnswer": 0,
+    "category": "Situaciones de conducción"
+  },
+  {
+    "id": 88,
+    "question": "¿Qué se debe hacer si se encuentra con una mancha de aceite en la vía y no la puede esquivar?",
+    "options": [
+      "Inclinar la moto y frenar duro con el delantero",
+      "Mantener la moto completamente recta, no frenar ni acelerar bruscamente y pasar con el vuelo",
+      "Acelerar a fondo para pasarla más rápido",
+      "Meter primera marcha de golpe para bloquear la rueda"
+    ],
+    "correctAnswer": 1,
+    "category": "Situaciones de conducción"
+  },
+  {
+    "id": 89,
+    "question": "¿Cuál es el principal riesgo de conducir con un casco que no corresponde a la talla correcta (muy grande)?",
+    "options": [
+      "Que se ensucie más rápido por dentro",
+      "Que se salga o rote en caso de un impacto, dejando la cabeza desprotegida",
+      "Que reduzca la velocidad de la motocicleta",
+      "Que la visera se raye por el viento"
+    ],
+    "correctAnswer": 1,
+    "category": "Situaciones de conducción"
+  },
+  {
+    "id": 90,
+    "question": "¿Qué se debe hacer al transitar cerca de ciclistas en la vía?",
+    "options": [
+      "Pasarle lo más cerca posible para no invadir el otro carril",
+      "Dejar una distancia lateral mínima de seguridad de 1.5 metros al adelantarlo",
+      "Tocar la bocina/pito de forma estridente a centímetros del ciclista",
+      "Obligar al ciclista a salirse de la vía"
+    ],
+    "correctAnswer": 1,
+    "category": "Situaciones de conducción"
+  },
+  {
+    "id": 91,
+    "question": "¿Qué consecuencia tiene frenar bruscamente con el freno delantero mientras la moto está inclinada en una curva?",
+    "options": [
+      "La moto tiende a levantarse bruscamente o la rueda delantera pierde adherencia y se produce una caída",
+      "La moto frena en la mitad de distancia que en recta",
+      "La suspensión trasera se bloquea sin peligro",
+      "El motor se apaga y se encienden las luces de emergencia"
+    ],
+    "correctAnswer": 0,
+    "category": "Situaciones de conducción"
+  },
+  {
+    "id": 92,
+    "question": "¿Qué significa conducir a la defensiva en motocicleta?",
+    "options": [
+      "Agredir verbalmente a los conductores que cometen errores",
+      "Anticipar los posibles errores de los demás usuarios de la vía y reaccionar con tiempo de margen",
+      "Transitar siempre con la luz alta encendida y pito constante",
+      "Manejar únicamente por vías secundarias o destapadas"
+    ],
+    "correctAnswer": 1,
+    "category": "Situaciones de conducción"
+  },
+  {
+    "id": 93,
+    "question": "¿Cuál es la causa habitual de pérdida de control en zonas de obras en la vía?",
+    "options": [
+      "La acumulación de barro, gravilla, placas metálicas o arena en la calzada",
+      "El exceso de señales informativas",
+      "El aumento repentino del octanaje en la gasolina",
+      "La baja temperatura de los amortiguadores"
+    ],
+    "correctAnswer": 0,
+    "category": "Situaciones de conducción"
+  },
+  {
+    "id": 94,
+    "question": "¿Por qué no se debe transportar niños menores de cierta edad (según normativa nacional) en la moto?",
+    "options": [
+      "Porque no alcanzan con solidez los posapiés y carecen de la madurez física/fuerza para sostenerse",
+      "Porque ensucian el tanque de combustible",
+      "Porque aumentan el consumo de aceite",
+      "Porque el casco protector no les queda bien estéticamente"
+    ],
+    "correctAnswer": 0,
+    "category": "Situaciones de conducción"
+  },
+  {
+    "id": 95,
+    "question": "¿Qué acción es recomendable si debe conducir bajo una tormenta eléctrica intensa?",
+    "options": [
+      "Buscar un refugio seguro (estación de servicio, edificación) y detenerse alejado de árboles o estructuras metálicas",
+      "Conducir a máxima velocidad para llegar rápido a casa",
+      "Refugiarse inmediatamente debajo de un árbol alto en la carretera",
+      "Quitarse el casco para ver mejor el camino"
+    ],
+    "correctAnswer": 0,
+    "category": "Situaciones de conducción"
+  },
+  {
+    "id": 96,
+    "question": "¿Cómo influye el consumo de alcohol en la conducción de motocicletas, incluso en pequeñas cantidades?",
+    "options": [
+      "Aumenta los reflejos y mejora la visión nocturna",
+      "Afecta el equilibrio, reduce la coordinación, altera el juicio del riesgo y ralentiza los reflejos",
+      "Permite tomar curvas con mayor grado de inclinación de forma segura",
+      "No produce ningún efecto si se toma café caliente antes de manejar"
+    ],
+    "correctAnswer": 1,
+    "category": "Situaciones de conducción"
+  },
+  {
+    "id": 97,
+    "question": "¿Cuál es la forma correcta de usar el freno de motor?",
+    "options": [
+      "Apagar el suiche de encendido mientras rueda",
+      "Reducir de marchas progresivamente soltando el embrague para que la compresión del motor retenga la moto",
+      "Poner la palanca en neutro y presionar el pedal del freno",
+      "Desconectar la cadena de transmisión"
+    ],
+    "correctAnswer": 1,
+    "category": "Situaciones de conducción"
+  },
+  {
+    "id": 98,
+    "question": "¿Qué se debe verificar en los espejos retrovisores antes de iniciar la marcha?",
+    "options": [
+      "Que reflejen claramente el horizonte y los carriles adyacentes sin mostrar excesivamente los hombros del piloto",
+      "Que apunten directamente hacia el suelo para ver las llantas",
+      "Que estén enfocados hacia el cielo para ver las señales aéreas",
+      "Que reflejen el rostro del conductor para verificar el casco"
+    ],
+    "correctAnswer": 0,
+    "category": "Situaciones de conducción"
+  },
+  {
+    "id": 99,
+    "question": "¿Qué maniobra debe evitarse totalmente al transitar entre líneas de vehículos detenidos o en movimiento?",
+    "options": [
+      "Adelantar a alta velocidad en el mismo carril cuando los carros están circulando velozmente",
+      "Mantener la luz baja encendida",
+      "Estar atento a las puertas que puedan abrirse de los vehículos",
+      "Usar los espejos antes de incorporarse"
+    ],
+    "correctAnswer": 0,
+    "category": "Situaciones de conducción"
+  },
+  {
+    "id": 100,
+    "question": "¿Cuál es la conducta adecuada al notar que una ambulancia se aproxima con sirenas y luces encendidas?",
+    "options": [
+      "Competir con la ambulancia para abrirle paso",
+      "Ceder el paso de inmediato orillándose a la derecha de forma segura y detenerse si es necesario",
+      "Detenerse bruscamente en la mitad del carril sin avisar",
+      "Acelerar para pegarse detrás de la ambulancia y avanzar rápido"
+    ],
+    "correctAnswer": 1,
+    "category": "Situaciones de conducción"
+  },
+  {
+    "id": 101,
+    "question": "¿Qué indica una línea continua doble de color amarillo en el centro de una calzada?",
+    "options": [
+      "Que es un carril exclusivo para motocicletas",
+      "Prohibición absoluta de adelantamiento en ambos sentidos de circulación",
+      "Permitido adelantar solo si no vienen vehículos de frente",
+      "Zona de estacionamiento permitido para todo tipo de vehículos"
+    ],
+    "correctAnswer": 1,
+    "category": "Infraestructura"
+  },
+  {
+    "id": 102,
+    "question": "¿Qué función cumple la marca vial conocida como \"Resalto de Demarcación\" o estriado horizontal en el asfalto?",
+    "options": [
+      "Alertar al conductor por medio de vibración y sonido que debe reducir la velocidad por un peligro próximo",
+      "Funcionar como carril preferencial de motocicletas",
+      "Indicar el lugar exacto donde se puede parqueo nocturno",
+      "Servir como punto de giro a la izquierda sin direccional"
+    ],
+    "correctAnswer": 0,
+    "category": "Infraestructura"
+  },
+  {
+    "id": 103,
+    "question": "¿Qué diferencia a una autovía/autopista de una vía urbana convencional según la infraestructura?",
+    "options": [
+      "Que en la autopista no hay peatones ni cruces a nivel y tiene accesos controlados",
+      "Que en la autopista los semáforos están instalados cada 100 metros",
+      "Que en la autopista está permitido transitar en contravía",
+      "Que las autopistas no tienen líneas horizontales demarcadas"
+    ],
+    "correctAnswer": 0,
+    "category": "Infraestructura"
+  },
+  {
+    "id": 104,
+    "question": "¿De qué color son las señales de tránsito de carácter Reglamentario según el Código de Tránsito en Colombia?",
+    "options": [
+      "Fondo azul con símbolos blancos",
+      "Fondo amarillo con bordes negros",
+      "Fondo blanco, borde rojo y símbolos/letras en negro",
+      "Fondo verde con letras amarillas"
+    ],
+    "correctAnswer": 2,
+    "category": "Infraestructura"
+  },
+  {
+    "id": 105,
+    "question": "¿Qué representa una señal vertical de forma octogonal con fondo rojo y texto blanco?",
+    "options": [
+      "Ceda el paso",
+      "Pare / Detención obligatoria",
+      "Dirección obligatoria",
+      "Peligro zona escolar"
+    ],
+    "correctAnswer": 1,
+    "category": "Infraestructura"
+  },
+  {
+    "id": 106,
+    "question": "¿Para qué sirven las señales preventivas (generalmente amarillas con forma de rombo)?",
+    "options": [
+      "Para notificar prohibiciones y sanciones legales",
+      "Para advertir al usuario sobre la existencia de un peligro o condición especial en la vía",
+      "Para indicar direcciones y distancias hacia municipios",
+      "Para informar sobre precios de peajes y gasolineras"
+    ],
+    "correctAnswer": 1,
+    "category": "Infraestructura"
+  },
+  {
+    "id": 107,
+    "question": "¿Qué es una \"berma\" en una vía o carretera nacional?",
+    "options": [
+      "El carril destinado exclusivamente para adelantar por la derecha",
+      "La faja lateral contigua a la calzada destinada a la detención de vehículos en emergencia y tránsito supletorio",
+      "La zona verde central que divide dos autopistas",
+      "La marca pintada sobre el asfalto para peatones"
+    ],
+    "correctAnswer": 1,
+    "category": "Infraestructura"
+  },
+  {
+    "id": 108,
+    "question": "¿Qué indica la señalización horizontal de líneas discontinuas (punteadas) de color blanco?",
+    "options": [
+      "Separación de carriles en el mismo sentido de circulación, permitiendo el cambio de carril con precaución",
+      "Prohibición total de cambiar de carril",
+      "Separación de sentidos opuestos con prohibición de adelantar",
+      "Zona de cruce peatonal exclusivo"
+    ],
+    "correctAnswer": 0,
+    "category": "Infraestructura"
+  },
+  {
+    "id": 109,
+    "question": "¿Qué es un \"carril preferencial\" o \"solo bus\"?",
+    "options": [
+      "Un carril de la calzada destinado para el uso prioritario o exclusivo del transporte público",
+      "Una pista para carreras de motocicletas dentro de la ciudad",
+      "Una zona de parqueo gratis de 24 horas",
+      "El carril izquierdo en autopistas nacionales"
+    ],
+    "correctAnswer": 0,
+    "category": "Infraestructura"
+  },
+  {
+    "id": 110,
+    "question": "¿Qué representa la señal informativa con fondo azul y la letra \"P\" en blanco?",
+    "options": [
+      "Prohibido parquear",
+      "Zona autorizada de Estacionamiento / Parqueadero",
+      "Puente peatonal a 100 metros",
+      "Peaje próximo"
+    ],
+    "correctAnswer": 1,
+    "category": "Infraestructura"
+  },
+  {
+    "id": 111,
+    "question": "¿Qué es una \"ciclorruta\" o \"ciclovía permanente\"?",
+    "options": [
+      "La berma utilizada por las motocicletas en hora pico",
+      "La infraestructura vial destinada de manera exclusiva para la circulación de bicicletas",
+      "El carril central de una autopista rápida",
+      "Una zona peatonal donde se permite el parqueo de motos"
+    ],
+    "correctAnswer": 1,
+    "category": "Infraestructura"
+  },
+  {
+    "id": 112,
+    "question": "¿Qué función cumple el separador central (físico o verde) en una avenida de doble calzada?",
+    "options": [
+      "Dividir físicamente los flujos vehiculares de sentidos opuestos para evitar colisiones frontales",
+      "Funcionar como carril de adelantamiento en emergencias",
+      "Servir de parqueadero para motocicletas",
+      "Acumular agua de lluvia para el riego de la ciudad"
+    ],
+    "correctAnswer": 0,
+    "category": "Infraestructura"
+  },
+  {
+    "id": 113,
+    "question": "¿Qué indica una señal vertical con fondo verde y texto blanco en las carreteras nacionales?",
+    "options": [
+      "Prohibición de velocidad máxima",
+      "Información de localización, destinos, rutas y distancias",
+      "Advertencia de curvas peligrosas",
+      "Presencia de retenes policiales"
+    ],
+    "correctAnswer": 1,
+    "category": "Infraestructura"
+  },
+  {
+    "id": 114,
+    "question": "¿Qué es la \"zona de cebra\" o paso peatonal delimitado por franjas blancas en la calzada?",
+    "options": [
+      "El lugar donde las motos deben esperar el cambio de semáforo sobre las líneas",
+      "La franja de la calzada destinada al cruce seguro de peatones donde estos tienen prelación",
+      "La zona permitida para adelantar a otros vehículos en intersecciones",
+      "Un espacio exclusivo para el cargue de mercancías"
+    ],
+    "correctAnswer": 1,
+    "category": "Infraestructura"
+  },
+  {
+    "id": 115,
+    "question": "¿Qué indica la señal preventiva que muestra el dibujo de una curva pronunciada en forma de flecha?",
+    "options": [
+      "La proximidad de un peligro por alineación horizontal (curva) en la vía",
+      "La obligación de girar a la derecha inmediatamente",
+      "El fin de la carretera pavimentada",
+      "La entrada a un túnel de un solo carril"
+    ],
+    "correctAnswer": 0,
+    "category": "Infraestructura"
+  },
+  {
+    "id": 116,
+    "question": "¿Qué es un \"Paso a Nivel\"?",
+    "options": [
+      "Un cruce a la misma altura entre una vía vehicular y una vía férrea (tren/metro)",
+      "Un puente elevado para peatones",
+      "Una rotonda de más de tres carriles",
+      "Un carril exclusivo para vehículos eléctricos"
+    ],
+    "correctAnswer": 0,
+    "category": "Infraestructura"
+  },
+  {
+    "id": 117,
+    "question": "¿Qué función tienen los \"ojos de buey\" o tachas reflectivas amarillas/rojas en el asfalto?",
+    "options": [
+      "Reemplazar los semáforos en las noches",
+      "Delimitar la vía y mejorar la visibilidad nocturna o con lluvia mediante el reflejo de las luces",
+      "Pinchar las llantas de los vehículos que van a exceso de velocidad",
+      "Medir la temperatura de las llantas de las motos"
+    ],
+    "correctAnswer": 1,
+    "category": "Infraestructura"
+  },
+  {
+    "id": 118,
+    "question": "¿Qué significa la marca vial triangular pintada en el suelo en la entrada de una glorieta o vía principal?",
+    "options": [
+      "Símbolo de \"Ceda el Paso\"",
+      "Símbolo de \"Pare\" absoluto",
+      "Carril exclusivo para motocicletas",
+      "Velocidad máxima de 100 km/h"
+    ],
+    "correctAnswer": 0,
+    "category": "Infraestructura"
+  },
+  {
+    "id": 119,
+    "question": "¿Qué indica la señal vertical informativa que contiene el símbolo de un surtidor de gasolina?",
+    "options": [
+      "Prohibido transportar combustibles",
+      "Proximidad de una estación de servicio / gasolinera",
+      "Zona de talleres mecánicos exclusivamente",
+      "Venta de repuestos para motocicletas"
+    ],
+    "correctAnswer": 1,
+    "category": "Infraestructura"
+  },
+  {
+    "id": 120,
+    "question": "¿Qué se entiende por \"Calzada\"?",
+    "options": [
+      "La parte de la vía destinada a la circulación de los vehículos (compuesta por uno o varios carriles)",
+      "El espacio pavimentado exclusivo para el uso de peatones",
+      "La cerca o muro que protege la vía",
+      "El canal de desagüe lateral de las lluvias"
+    ],
+    "correctAnswer": 0,
+    "category": "Infraestructura"
+  },
+  {
+    "id": 121,
+    "question": "¿Qué indica una línea continua de color blanco en el borde derecho de la calzada?",
+    "options": [
+      "Delimita el límite exterior de la calzada (borde de pavimento/berma)",
+      "Indica que se puede adelantar por el margen derecho",
+      "Muestra que la vía es de un solo carril",
+      "Señala la presencia de semáforos inteligentes"
+    ],
+    "correctAnswer": 0,
+    "category": "Infraestructura"
+  },
+  {
+    "id": 122,
+    "question": "¿Qué es un \"depresible\" o \"paso subterráneo\"?",
+    "options": [
+      "Un túnel o tramo de vía construido por debajo del nivel del suelo para agilizar el tráfico",
+      "Una falla en el asfalto producto de las lluvias",
+      "Un tramo donde está prohibida la luz de la moto",
+      "Una zona donde los vehículos deben apagar el motor"
+    ],
+    "correctAnswer": 0,
+    "category": "Infraestructura"
+  },
+  {
+    "id": 123,
+    "question": "¿Qué significa la señal reglamentaria R-1 que tiene forma de triángulo invertido blanco con borde rojo?",
+    "options": [
+      "Pare",
+      "Ceda el paso",
+      "Prohibido girar a la izquierda",
+      "Vía preferencial"
+    ],
+    "correctAnswer": 1,
+    "category": "Infraestructura"
+  },
+  {
+    "id": 124,
+    "question": "¿Qué función cumple la \"Red box\" o caja de bloqueo amarillenta trazada en cuadrícula dentro de una intersección?",
+    "options": [
+      "Servir de zona de parqueo exprés",
+      "Prohibir quedar detenido dentro del cruce para no bloquear el tráfico transversal",
+      "Señalar el espacio de parqueo exclusivo de ambulancias",
+      "Marcar la zona donde las motos pueden acelerar a fondo"
+    ],
+    "correctAnswer": 1,
+    "category": "Infraestructura"
+  },
+  {
+    "id": 125,
+    "question": "¿Qué es una \"Vía Peatonal\"?",
+    "options": [
+      "Una calle destinada exclusivamente al tránsito de peatones, donde el tráfico vehicular está restringido o prohibido",
+      "Un carril de alta velocidad para motocicletas pequeñas",
+      "La berma de las carreteras nacionales",
+      "El carril izquierdo de una glorieta"
+    ],
+    "correctAnswer": 0,
+    "category": "Infraestructura"
+  },
+  {
+    "id": 126,
+    "question": "¿Qué indica una señal de obra con fondo de color naranja?",
+    "options": [
+      "Información sobre sitios turísticos",
+      "Trabajos de mantenimiento o construcción temporales en la vía y condiciones especiales",
+      "Prohibición permanente de circulación de carga pesada",
+      "Presencia de zonas escolares permanentes"
+    ],
+    "correctAnswer": 1,
+    "category": "Infraestructura"
+  },
+  {
+    "id": 127,
+    "question": "¿Qué representa la línea de parada (línea ancha y continua blanca antes de un semáforo o señal de PARE)?",
+    "options": [
+      "El punto límite donde el vehículo debe detenerse por completo ante la indicación de parada",
+      "La línea donde las motos deben subirse a la acera",
+      "El lugar donde se debe iniciar el adelantamiento de carros",
+      "Una simple marca decorativa en el asfalto"
+    ],
+    "correctAnswer": 0,
+    "category": "Infraestructura"
+  },
+  {
+    "id": 128,
+    "question": "¿Qué es un \"Gálibo\" en la infraestructura de un túnel o puente?",
+    "options": [
+      "La altura libre máxima permitida para que un vehículo pase sin impactar la estructura",
+      "El ancho exacto del carril de las motocicletas",
+      "El peso máximo que soporta el puente por eje",
+      "La velocidad mínima permitida dentro del túnel"
+    ],
+    "correctAnswer": 0,
+    "category": "Infraestructura"
+  },
+  {
+    "id": 129,
+    "question": "¿Qué indica la señal reglamentaria con un círculo rojo, una flecha hacia la derecha y una barra diagonal roja cruzada?",
+    "options": [
+      "Giro a la derecha obligatorio",
+      "Prohibido girar a la derecha",
+      "Conservar el carril derecho",
+      "Salida por la derecha a 100 metros"
+    ],
+    "correctAnswer": 1,
+    "category": "Infraestructura"
+  },
+  {
+    "id": 130,
+    "question": "¿Qué es el \"Paltó\" o bordillo/andén en la vía urbana?",
+    "options": [
+      "La estructura elevada que separa la calzada de la acera o zona peatonal",
+      "El centro del carril de alta velocidad",
+      "El espacio reservado para la revisión técnica de las motos",
+      "El reductor de velocidad en plástico reflexivo"
+    ],
+    "correctAnswer": 0,
+    "category": "Infraestructura"
+  },
+  {
+    "id": 131,
+    "question": "¿Qué indica la señal preventiva \"Superficie Rizada\" o \"Resalto\"?",
+    "options": [
+      "La cercanía de deformaciones, resaltos o irregularidades en el pavimento",
+      "El inicio de una vía pavimentada de tres carriles",
+      "La presencia de una zona de parqueo con adoquines",
+      "La proximidad de un peaje automatizado"
+    ],
+    "correctAnswer": 0,
+    "category": "Infraestructura"
+  },
+  {
+    "id": 132,
+    "question": "¿Qué significa una señal vertical de color café o marrón?",
+    "options": [
+      "Información turística, ecológica, de parques nacionales o interés cultural",
+      "Prohibición de transporte de alimentos",
+      "Advertencia de derrumbes en la vía",
+      "Control de velocidad por fotodetección"
+    ],
+    "correctAnswer": 0,
+    "category": "Infraestructura"
+  },
+  {
+    "id": 133,
+    "question": "¿Qué es una \"Sombra de Parada para Motos\" o \"Bici-carril / Moto-carril adelantado\" en semáforos?",
+    "options": [
+      "La zona delimitada al frente de los carros para que las motos esperen el semáforo de forma segura",
+      "La sombra proyectada por los puentes peatonales donde las motos se tapan de la lluvia",
+      "Un parqueadero de motos sobre la acera",
+      "El espacio entre dos camiones en la vía"
+    ],
+    "correctAnswer": 0,
+    "category": "Infraestructura"
+  },
+  {
+    "id": 134,
+    "question": "¿Qué indica una señal informativa con el símbolo de un hospital (una cruz roja o letra H azul)?",
+    "options": [
+      "Prohibición de tocar el pito y cercanía de un centro médico",
+      "Obligación de detener la motocicleta para chequeo médico",
+      "Entrada exclusiva a ambulancias en contravía",
+      "Zona de venta de botiquines de primeros auxilios"
+    ],
+    "correctAnswer": 0,
+    "category": "Infraestructura"
+  },
+  {
+    "id": 135,
+    "question": "¿Qué es un \"Carril de Aceleración\"?",
+    "options": [
+      "El carril destinado a aumentar la velocidad para incorporarse de forma segura a una vía rápida",
+      "La pista donde se realizan pruebas de velocidad legal",
+      "El carril derecho de todas las avenidas",
+      "Una franja exclusiva para maniobras de acrobacia"
+    ],
+    "correctAnswer": 0,
+    "category": "Infraestructura"
+  },
+  {
+    "id": 136,
+    "question": "¿Qué indica la señal vertical reglamentaria con el número \"50\" dentro de un círculo rojo?",
+    "options": [
+      "Distancia mínima entre vehículos de 50 metros",
+      "Límite de velocidad máxima permitida de 50 km/h en ese tramo",
+      "Peso máximo del vehículo en 50 toneladas",
+      "Tarifa del peaje en pesos"
+    ],
+    "correctAnswer": 1,
+    "category": "Infraestructura"
+  },
+  {
+    "id": 137,
+    "question": "¿Qué es una \"Glorieta\" o \"Rotonda\"?",
+    "options": [
+      "Una intersección canalizada donde el tráfico circula de forma giratoria alrededor de un anillo central",
+      "Una vía en recta sin cruces durante más de 10 kilómetros",
+      "El espacio de parqueo debajo de los puentes",
+      "Un cruce regulado exclusivamente por agentes de tránsito humanos"
+    ],
+    "correctAnswer": 0,
+    "category": "Infraestructura"
+  },
+  {
+    "id": 138,
+    "question": "¿Qué indica una señal preventiva que muestra dos flechas verticales en sentidos opuestos?",
+    "options": [
+      "Proximidad de vía de doble sentido de circulación",
+      "Prohibición de transitar en ambos sentidos",
+      "Obligación de retornar inmediatamente",
+      "Fin de la calzada pavimentada"
+    ],
+    "correctAnswer": 0,
+    "category": "Infraestructura"
+  },
+  {
+    "id": 139,
+    "question": "¿Qué es la \"Distancia de Visibilidad de Parada\" en el diseño de una vía?",
+    "options": [
+      "La distancia requerida para que un conductor vea un objeto en la vía y logre detenerse antes de impactarlo",
+      "El alcance máximo de las luces altas de una moto",
+      "La longitud total del espejo retrovisor izquierdo",
+      "La distancia entre dos peajes consecutivos"
+    ],
+    "correctAnswer": 0,
+    "category": "Infraestructura"
+  },
+  {
+    "id": 140,
+    "question": "¿Qué indica la señal con el gráfico de un camión dentro de un círculo rojo con barra diagonal?",
+    "options": [
+      "Carril exclusivo para vehículos pesados",
+      "Prohibida la circulación de vehículos de carga/camiones",
+      "Estación de pesaje para camiones cercana",
+      "Peligro por adelantamiento de camiones"
+    ],
+    "correctAnswer": 1,
+    "category": "Infraestructura"
+  },
+  {
+    "id": 141,
+    "question": "¿Qué función cumple la barrera metálica de seguridad o \"Guardarraíl\" en los bordes de la vía?",
+    "options": [
+      "Contener y redireccionar vehículos fuera de control para evitar caídas a abismos o volcamientos",
+      "Permitir el amarre de las motocicletas varadas",
+      "Delimitar la velocidad máxima de la carretera",
+      "Proteger la vegetación de la zona media"
+    ],
+    "correctAnswer": 0,
+    "category": "Infraestructura"
+  },
+  {
+    "id": 142,
+    "question": "¿Qué significa una flecha blanca pintada en el suelo apuntando hacia adelante y a la derecha?",
+    "options": [
+      "Carril que permite continuar de frente o girar a la derecha",
+      "Prohibido girar a la derecha en esa intersección",
+      "Obligatoriedad de detenerse antes de girar",
+      "Vía cerrada a 500 metros"
+    ],
+    "correctAnswer": 0,
+    "category": "Infraestructura"
+  },
+  {
+    "id": 143,
+    "question": "¿Qué es un \"Intercambiador Vial\"?",
+    "options": [
+      "Un sistema de rampas y puentes que permite el paso entre dos o más vías a diferente nivel sin cruces directos",
+      "El lugar donde se cambia de moto por otro vehículo",
+      "Una estación de transferencia de transporte masivo únicamente",
+      "El punto de cambio de aceite para vehículos"
+    ],
+    "correctAnswer": 0,
+    "category": "Infraestructura"
+  },
+  {
+    "id": 144,
+    "question": "¿Qué indica la presencia de una línea continua amarilla junto a una línea discontinua amarilla?",
+    "options": [
+      "Que solo puede adelantar el conductor que tiene la línea discontinua a su lado inmediato",
+      "Que ninguno de los dos sentidos puede adelantar bajo ninguna circunstancia",
+      "Que ambos sentidos pueden adelantar libremente",
+      "Que es un carril exclusivo de bicicletas de 6 am a 6 pm"
+    ],
+    "correctAnswer": 0,
+    "category": "Infraestructura"
+  },
+  {
+    "id": 145,
+    "question": "¿Qué es un \"Paso Elevado Peatonal\"?",
+    "options": [
+      "Una estructura puente construida sobre la calzada para que los peatones crucen de forma segura",
+      "Un resalto de madera instalado en la calle",
+      "El carril superior de una glorieta",
+      "El andén que pasa por encima de un canal de agua"
+    ],
+    "correctAnswer": 0,
+    "category": "Infraestructura"
+  },
+  {
+    "id": 146,
+    "question": "¿Qué indica la señal reglamentaria con el gráfico de una motocicleta dentro de un círculo rojo tachado?",
+    "options": [
+      "Prohibida la circulación de motocicletas en esa vía o zona",
+      "Taller de motocicletas cerrado",
+      "Estacionamiento exclusivo para motocicletas",
+      "Precaución por alto flujo de motocicletas"
+    ],
+    "correctAnswer": 0,
+    "category": "Infraestructura"
+  },
+  {
+    "id": 147,
+    "question": "¿Qué es una \"Vía de Arteria\" o \"Vía Arterial\"?",
+    "options": [
+      "Una vía de alta intensidad vehicular que conecta diferentes zonas de una ciudad o región",
+      "Un pasaje residencial de un solo sentido y velocidad máxima de 10 km/h",
+      "Una trocha sin pavimentar para camperos",
+      "La franja destinada exclusivamente a ciclistas"
+    ],
+    "correctAnswer": 0,
+    "category": "Infraestructura"
+  },
+  {
+    "id": 148,
+    "question": "¿Qué representa la señal de \"Ceda el Paso\"?",
+    "options": [
+      "Que el conductor debe reducir la velocidad o detenerse si es necesario para dar prelación a otros vehículos",
+      "Que el conductor tiene la prioridad absoluta para avanzar",
+      "Que se debe aparcar a la derecha inmediatamente",
+      "Que la vía adelante está totalmente bloqueada"
+    ],
+    "correctAnswer": 0,
+    "category": "Infraestructura"
+  },
+  {
+    "id": 149,
+    "question": "¿Qué es un \"Punto de Retorno\" en una avenida con separador?",
+    "options": [
+      "Una infraestructura o apertura en el separador diseñada para cambiar de sentido de marcha legalmente",
+      "El lugar donde la policía realiza pruebas de alcoholemia",
+      "El fin de la jurisdicción municipal",
+      "Una rotonda subterránea de un solo carril"
+    ],
+    "correctAnswer": 0,
+    "category": "Infraestructura"
+  },
+  {
+    "id": 150,
+    "question": "¿Qué significa la indicación de luz roja intermitente en un semáforo?",
+    "options": [
+      "Equivale a una señal de PARE: detenerse totalmente y avanzar solo cuando sea seguro",
+      "Continuar a alta velocidad sin detenerse",
+      "Semáforo fuera de servicio, avanzar sin mirar",
+      "Cambio inminente a luz verde en 1 segundo"
+    ],
+    "correctAnswer": 0,
+    "category": "Infraestructura"
+  },
+  {
+    "id": 151,
+    "question": "¿Cuál es el marco legal principal que regula el tránsito en Colombia?",
+    "options": [
+      "La Ley 769 de 2002 (Código Nacional de Tránsito Terrestre) y sus modificaciones",
+      "El Código de Comercio de Colombia",
+      "La Ley de Infraestructura Turística",
+      "El Estatuto Orgánico del Sistema Financiero"
+    ],
+    "correctAnswer": 0,
+    "category": "Normativa vial"
+  },
+  {
+    "id": 152,
+    "question": "Según la normativa colombiana, ¿es obligatorio el uso de luz delantera para las motocicletas durante el día?",
+    "options": [
+      "No, solo se debe encender entre las 6:00 p.m. y las 6:00 a.m.",
+      "Sí, la luz principal debe permanecer encendida las 24 horas del día mientras se transite",
+      "Solo cuando se transite por carreteras nacionales",
+      "Solo si la motocicleta es superior a 250 cc"
+    ],
+    "correctAnswer": 1,
+    "category": "Normativa vial"
+  },
+  {
+    "id": 153,
+    "question": "¿A partir de qué hora es obligatorio el uso del chaleco o prenda reflectiva para conductores de motocicleta en Colombia?",
+    "options": [
+      "Desde las 8:00 p.m. hasta las 5:00 a.m.",
+      "Desde las 18:00 horas (6:00 p.m.) hasta las 06:00 horas (6:00 a.m.) del día siguiente y cuando la visibilidad sea escasa",
+      "Únicamente los domingos y festivos",
+      "Solo durante tormentas de lluvia intensa"
+    ],
+    "correctAnswer": 1,
+    "category": "Normativa vial"
+  },
+  {
+    "id": 154,
+    "question": "¿Cuál es el límite máximo de velocidad permitido para vehículos de servicio particular (incluidas motos) en vías urbanas en Colombia (Ley 2251 de 2022)?",
+    "options": [
+      "80 km/h",
+      "60 km/h",
+      "50 km/h (salvo señalización que indique un límite menor)",
+      "30 km/h en todas las avenidas sin excepción"
+    ],
+    "correctAnswer": 2,
+    "category": "Normativa vial"
+  },
+  {
+    "id": 155,
+    "question": "¿Cuál es el límite de velocidad en zonas escolares, residenciales y de hospitales en Colombia?",
+    "options": [
+      "50 km/h",
+      "30 km/h",
+      "20 km/h",
+      "10 km/h"
+    ],
+    "correctAnswer": 1,
+    "category": "Normativa vial"
+  },
+  {
+    "id": 156,
+    "question": "¿Qué documento obligatorio cubre los daños corporales causados a las personas en accidentes de tránsito en Colombia?",
+    "options": [
+      "El Seguro Obligatorio de Accidentes de Tránsito (SOAT)",
+      "La Póliza Todo Riesgo Comercial",
+      "La Revisión Técnico-Mecánica",
+      "La Licencia de Conducción A2"
+    ],
+    "correctAnswer": 0,
+    "category": "Normativa vial"
+  },
+  {
+    "id": 157,
+    "question": "¿A los cuántos años de matriculada debe realizar una motocicleta particular su primera Revisión Técnico-Mecánica (según normatividad vigente modificada)?",
+    "options": [
+      "Al primer año contado a partir de su fecha de matrícula",
+      "A los dos (2) años a partir de la fecha de su matrícula",
+      "A los cinco años",
+      "Las motocicletas están exentas de la Técnico-Mecánica"
+    ],
+    "correctAnswer": 1,
+    "category": "Normativa vial"
+  },
+  {
+    "id": 158,
+    "question": "¿Cuál es la categoría de licencia de conducción requerida en Colombia para manejar motocicletas de más de 125 cc?",
+    "options": [
+      "Categoría A1",
+      "Categoría A2",
+      "Categoría B1",
+      "Categoría C2"
+    ],
+    "correctAnswer": 1,
+    "category": "Normativa vial"
+  },
+  {
+    "id": 159,
+    "question": "¿Cuál es la sanción por transitar en una motocicleta sin portar el SOAT vigente?",
+    "options": [
+      "Multa equivalente a 30 salarios mínimos diarios legales vigentes (SMDLV) e inmovilización del vehículo",
+      "Solo una amonestación verbal del agente de tránsito",
+      "Cancelación definitiva de la licencia de conducción sin multa económica",
+      "Pago de un peaje doble en la siguiente estación"
+    ],
+    "correctAnswer": 0,
+    "category": "Normativa vial"
+  },
+  {
+    "id": 160,
+    "question": "Según la Resolución 23385 de 2020, ¿cuál es un requisito obligatorio respecto al uso del casco protector?",
+    "options": [
+      "La cabeza debe estar totalmente abrochada dentro del casco sin correas rotas ni broches partidos",
+      "El casco debe ser del mismo color de la motocicleta",
+      "El casco solo debe usarse en carreteras fuera de la ciudad",
+      "Es permitido llevar el casco apoyado en el codo mientras se conduce a baja velocidad"
+    ],
+    "correctAnswer": 0,
+    "category": "Normativa vial"
+  },
+  {
+    "id": 161,
+    "question": "¿Qué norma legal prohíbe el tránsito de motocicletas sobre aceras, andenes y zonas destinadas a peatones?",
+    "options": [
+      "El Código Nacional de Tránsito (Ley 769 de 2002)",
+      "La Ley de Medio Ambiente",
+      "La Constitución Política de 1991 (Artículo 1)",
+      "El Código Penal Militar"
+    ],
+    "correctAnswer": 0,
+    "category": "Normativa vial"
+  },
+  {
+    "id": 162,
+    "question": "¿Está permitido el transporte de niños menores de 10 años en motocicleta según la regulación colombiana general?",
+    "options": [
+      "Sí, si llevan casco y chaleco reflectivo",
+      "No, está expresamente prohibido transportar niños menores de 10 años en motocicleta",
+      "Sí, siempre que vayan ubicados entre el conductor y el tanque",
+      "Únicamente en trayectos urbanos menores a 2 kilómetros"
+    ],
+    "correctAnswer": 1,
+    "category": "Normativa vial"
+  },
+  {
+    "id": 163,
+    "question": "¿Qué autoridad expide las licencias de conducción en Colombia a través de los organismos de tránsito?",
+    "options": [
+      "El Ministerio de Transporte (registrado en el sistema RUNT)",
+      "La Policía Nacional directamente",
+      "La Superintendencia de Industria y Comercio",
+      "Las alcaldías locales sin registro nacional"
+    ],
+    "correctAnswer": 0,
+    "category": "Normativa vial"
+  },
+  {
+    "id": 164,
+    "question": "¿Cuál es el grado de alcoholimetría permitido para conductores de cualquier vehículo (incluidas motos) en Colombia según la Ley 1696 de 2013?",
+    "options": [
+      "Tolerancia cero (Grado 0 con sanción desde 20 mg de etanol/100 ml de sangre)",
+      "Hasta 0.5 grados sin sanción",
+      "1.0 grado de alcohol",
+      "Tres cervezas o su equivalente"
+    ],
+    "correctAnswer": 0,
+    "category": "Normativa vial"
+  },
+  {
+    "id": 165,
+    "question": "¿Qué sanción genera conducir una motocicleta realizando maniobras peligrosas o \"piruetas\" en la vía pública?",
+    "options": [
+      "Imposición de comparendo (multa de 30 SMDLV) e inmovilización de la motocicleta",
+      "Descuento del 50% en el impuesto de vehículo",
+      "Obligación de realizar un curso de acrobacia",
+      "Amonestación escrita enviada al correo en 30 días"
+    ],
+    "correctAnswer": 0,
+    "category": "Normativa vial"
+  },
+  {
+    "id": 166,
+    "question": "¿Cuál es la distancia máxima a la que se debe estacionar una moto del borde del andén cuando está permitido?",
+    "options": [
+      "Paralelo al andén a no más de 30 centímetros",
+      "A 2 metros de distancia del andén",
+      "Sobre la acera tapando el paso peatonal",
+      "En diagonal ocupando dos carriles enteros"
+    ],
+    "correctAnswer": 0,
+    "category": "Normativa vial"
+  },
+  {
+    "id": 167,
+    "question": "¿Qué es el RUNT en Colombia?",
+    "options": [
+      "Registro Único Nacional de Tránsito",
+      "Red Urbana de Transporte Terrestre",
+      "Reglamento Único de Taxis y Motos",
+      "Real Unión de Transportadores de Carga"
+    ],
+    "correctAnswer": 0,
+    "category": "Normativa vial"
+  },
+  {
+    "id": 168,
+    "question": "¿Qué trámite es obligatorio realizar ante el organismo de tránsito cuando se vende una motocicleta a otra persona?",
+    "options": [
+      "El traspaso de propiedad de la motocicleta",
+      "El cambio de color del chasis",
+      "La renovación de la tarjeta de propiedad del comprador únicamente",
+      "El pago de la póliza de responsabilidad extracontractual"
+    ],
+    "correctAnswer": 0,
+    "category": "Normativa vial"
+  },
+  {
+    "id": 169,
+    "question": "¿Está permitido adelantar a otro vehículo en una intersección o cruce de vías según la ley de tránsito?",
+    "options": [
+      "No, está prohibido adelantar en intersecciones, curvas y pasos a nivel",
+      "Sí, siempre que se toque el pito con fuerza",
+      "Sí, pero solo si se adelanta por el lado derecho",
+      "Solamente si el vehículo de adelante es un bus"
+    ],
+    "correctAnswer": 0,
+    "category": "Normativa vial"
+  },
+  {
+    "id": 170,
+    "question": "¿Qué luz de tránsito le prohíbe al motociclista girar a la derecha cuando hay una señal explícita de \"Prohibido giro a la derecha con luz roja\"?",
+    "options": [
+      "La luz roja del semáforo",
+      "La luz verde",
+      "La luz amarilla parpadeante",
+      "Ninguna luz lo prohíbe"
+    ],
+    "correctAnswer": 0,
+    "category": "Normativa vial"
+  },
+  {
+    "id": 171,
+    "question": "¿Cuál es la penalización por no realizar la Revisión Técnico-Mecánica en el plazo estipulado por la ley?",
+    "options": [
+      "Multa económica de 15 SMDLV e inmovilización del vehículo",
+      "Pérdida de 50 puntos en el pase",
+      "Incautación definitiva y chatarrización de la moto",
+      "Cierre de la estación de servicio más cercana"
+    ],
+    "correctAnswer": 0,
+    "category": "Normativa vial"
+  },
+  {
+    "id": 172,
+    "question": "¿Qué documento identifica las características técnicas de la moto (cilindraje, número de motor, chasis) y a su propietario legal?",
+    "options": [
+      "La Licencia de Tránsito (Tarjeta de Propiedad)",
+      "El certificado de matrícula escolar",
+      "El recibo de pago del SOAT",
+      "La Licencia de Conducción A1"
+    ],
+    "correctAnswer": 0,
+    "category": "Normativa vial"
+  },
+  {
+    "id": 173,
+    "question": "¿Cuál es el valor tope de emisión de ruido permitido para tubos de escape de motocicletas regulado por el Ministerio de Ambiente?",
+    "options": [
+      "Los límites establecidos en decibeles (d",
+      "por la normatividad ambiental vigente (prohibido el uso de escapes libres o modificados que superen la norma) B) No existe ningún límite para motocicletas",
+      "200 decibeles en todo momento",
+      "Solo aplica para motocicletas eléctricas"
+    ],
+    "correctAnswer": 0,
+    "category": "Normativa vial"
+  },
+  {
+    "id": 174,
+    "question": "¿Qué obligación tienen los motociclistas respecto al uso de las direccionales?",
+    "options": [
+      "Encenderlas con suficiente anticipación (mínimo 30 metros) antes de realizar giros o cambios de carril",
+      "Usarlas solo durante la noche",
+      "Las direccionales son opcionales en las motos",
+      "Encenderlas únicamente al momento de frenar de emergencia"
+    ],
+    "correctAnswer": 0,
+    "category": "Normativa vial"
+  },
+  {
+    "id": 175,
+    "question": "¿En qué lado del casco debe estar visible el número de placa de la motocicleta según las regulaciones locales cuando aplique?",
+    "options": [
+      "En la parte trasera exterior del casco, con letras y números reflectivos según especificaciones legales",
+      "En el visor transparente por el lado de adentro",
+      "En la correa de ajuste debajo de la barbilla",
+      "No se permite llevar la placa en el casco bajo ninguna circunstancia"
+    ],
+    "correctAnswer": 0,
+    "category": "Normativa vial"
+  },
+  {
+    "id": 176,
+    "question": "¿Qué ocurre si un conductor es sorprendido manejando con la licencia de conducción suspendida?",
+    "options": [
+      "Cancelación definitiva de la licencia de conducción e inmovilización del vehículo",
+      "Un llamado de atención verbal",
+      "Reducción del valor de los impuestos vehiculares",
+      "Obligación de presentar nuevamente el examen médico únicamente"
+    ],
+    "correctAnswer": 0,
+    "category": "Normativa vial"
+  },
+  {
+    "id": 177,
+    "question": "¿Cuál es el comportamiento legal correcto al encontrarse con un retén de control de tránsito oficial?",
+    "options": [
+      "Detener la marcha atender las indicaciones de la autoridad y presentar la documentación requerida",
+      "Dar la vuelta en U y huir a alta velocidad",
+      "Acelerar para pasar sin detenerse",
+      "Exigir que la autoridad le pague el combustible invertido"
+    ],
+    "correctAnswer": 0,
+    "category": "Normativa vial"
+  },
+  {
+    "id": 178,
+    "question": "¿Qué regla aplica para la circulación de motocicletas en los peajes de carreteras nacionales administrados por el INVIAS/ANI en Colombia?",
+    "options": [
+      "Las motocicletas están exentas del pago de la tarifa de peaje, pero deben transitar por el carril exclusivo asignado a velocidad reducida",
+      "Pagan la misma tarifa que un automóvil particular",
+      "Tienen prohibido el paso por las estaciones de peaje",
+      "Pagan el doble de tarifa los fines de semana"
+    ],
+    "correctAnswer": 0,
+    "category": "Normativa vial"
+  },
+  {
+    "id": 179,
+    "question": "¿Qué debe hacer un motociclista en caso de verse involucrado en un accidente de tránsito con solo daños materiales (sin heridos) según la Ley 2251 de 2022?",
+    "options": [
+      "Recabar pruebas (fotos/videos) y retirar inmediatamente los vehículos para no obstruir la vía",
+      "Dejar la moto tirada en la mitad de la vía durante horas hasta que llegue un juez",
+      "Huir del lugar antes de que lleguen los agentes",
+      "Ocultar las placas del vehículo"
+    ],
+    "correctAnswer": 0,
+    "category": "Normativa vial"
+  },
+  {
+    "id": 180,
+    "question": "¿Qué sanción aplica si un conductor se niega a realizarse la prueba de alcoholemia solicitada por la autoridad competente?",
+    "options": [
+      "Sanción máxima: multa más alta, inmovilización del vehículo por 20 días y cancelación o suspensión de la licencia de 5 a 10 años",
+      "Amonestación de 5 minutos y libertad de continuar",
+      "Un comparendo pedagogico sin costo",
+      "Descuento especial en el trámite de la Revisión Técnico-Mecánica"
+    ],
+    "correctAnswer": 0,
+    "category": "Normativa vial"
+  },
+  {
+    "id": 181,
+    "question": "¿Está permitido llevar carga que sobresalga lateralmente del manubrio de la motocicleta?",
+    "options": [
+      "No, está prohibido transportar objetos que sobresalgan de los extremos del vehículo o dificulten la maniobrabilidad",
+      "Sí, hasta 1 metro a cada lado del manubrio",
+      "Sí, siempre que la carga vaya amarrada con lazos de color rojo",
+      "Únicamente si la carga pesa menos de 5 kg"
+    ],
+    "correctAnswer": 0,
+    "category": "Normativa vial"
+  },
+  {
+    "id": 182,
+    "question": "¿Cuál es la autoridad máxima de tránsito en una vía en el momento en que se encuentra dirigiendo el tráfico?",
+    "options": [
+      "Las señales impartidas por los agentes o policías de tránsito (predominan sobre semáforos y señales fijas)",
+      "El semáforo en color verde",
+      "La señal vertical de PARE",
+      "La velocidad del vehículo de adelante"
+    ],
+    "correctAnswer": 0,
+    "category": "Normativa vial"
+  },
+  {
+    "id": 183,
+    "question": "¿Qué vigencia tiene la licencia de conducción para vehículos particulares (Categoría A2) para personas menores de 60 años en Colombia?",
+    "options": [
+      "10 años",
+      "5 años",
+      "1 año",
+      "Vigencia vitalicia sin renovación"
+    ],
+    "correctAnswer": 0,
+    "category": "Normativa vial"
+  },
+  {
+    "id": 184,
+    "question": "¿Qué establece la ley sobre el tránsito de motocicletas por las ciclorrutas?",
+    "options": [
+      "Está totalmente prohibido para las motocicletas circular por infraestructura ciclística",
+      "Está permitido si la motocicleta no supera los 20 km/h",
+      "Permitido únicamente en horas pico",
+      "Permitido solo para motocicletas de mensajería o domicilios"
+    ],
+    "correctAnswer": 0,
+    "category": "Normativa vial"
+  },
+  {
+    "id": 185,
+    "question": "¿Qué elemento de protección es obligatorio tanto para el conductor como para el acompañante en motocicleta?",
+    "options": [
+      "Casco reglamentario debidamente abrochado",
+      "Chaqueta de cuero con protecciones de titanio",
+      "Botas de caña alta con punta de acero",
+      "Gafas oscuras de protección solar"
+    ],
+    "correctAnswer": 0,
+    "category": "Normativa vial"
+  },
+  {
+    "id": 186,
+    "question": "¿Cuál es la multa en SMDLV por pasar un semáforo en luz roja o señal de PARE (Infracción D04)?",
+    "options": [
+      "30 Salarios Mínimos Diarios Legales Vigentes (SMDLV)",
+      "5 Salarios Mínimos Diarios Legales Vigentes",
+      "100 Salarios Mínimos Diarios Legales Vigentes",
+      "Un Salario Mínimo Mensual completo"
+    ],
+    "correctAnswer": 0,
+    "category": "Normativa vial"
+  },
+  {
+    "id": 187,
+    "question": "¿Qué documento demuestra que la motocicleta está al día en sus impuestos territoriales?",
+    "options": [
+      "El comprobante o paz y salvo de pago del Impuesto Sobre Vehículos Automotores",
+      "La cédula de ciudadanía del conductor",
+      "El certificado de gases de la Técnico-Mecánica",
+      "La factura de compra del casco"
+    ],
+    "correctAnswer": 0,
+    "category": "Normativa vial"
+  },
+  {
+    "id": 188,
+    "question": "¿Qué sucede si la placa física de la motocicleta no es legible por desgaste o barro acumulado?",
+    "options": [
+      "El conductor puede ser sancionado por transitar con placas ilegibles o alteradas",
+      "No ocurre nada, es completamente legal",
+      "Se le otorga un permiso especial de un año para limpiarla",
+      "La moto queda exenta de fotodetecciones"
+    ],
+    "correctAnswer": 0,
+    "category": "Normativa vial"
+  },
+  {
+    "id": 189,
+    "question": "¿Cuál es la conducta requerida al transitar por una zona escolar en el horario de entrada o salida de estudiantes?",
+    "options": [
+      "Reducir la velocidad a un máximo de 30 km/h y extremar la atención ante el cruce de peatones",
+      "Acelerar y tocar el pito continuamente para que los niños no crucen",
+      "Mantener una velocidad de 60 km/h si no se ven profesores",
+      "Detenerse a tomar fotos"
+    ],
+    "correctAnswer": 0,
+    "category": "Normativa vial"
+  },
+  {
+    "id": 190,
+    "question": "¿Qué se entiende por \"Inmovilización\" de un vehículo como medida cautelar de tránsito?",
+    "options": [
+      "La suspensión temporal de la circulación del vehículo en patios oficiales hasta que se subsane la causa de la infracción",
+      "La destrucción inmediata del motor en la vía pública",
+      "La venta en subasta pública al día siguiente de la multa",
+      "El bloqueo manual del manubrio por 5 minutos"
+    ],
+    "correctAnswer": 0,
+    "category": "Normativa vial"
+  },
+  {
+    "id": 191,
+    "question": "Según el CNT, ¿por qué carril deben transitar habitualmente los vehículos de menor velocidad o motocicletas en vías de varios carriles?",
+    "options": [
+      "Por los carriles derechos destinados a la circulación normal",
+      "Por el carril izquierdo exclusivo de alta velocidad",
+      "Por la acera peatonal",
+      "Por el carril exclusivo de Transmilenio / Metroplús"
+    ],
+    "correctAnswer": 0,
+    "category": "Normativa vial"
+  },
+  {
+    "id": 192,
+    "question": "¿Qué requisito exige la ley respecto a los espejos retrovisores de una motocicleta?",
+    "options": [
+      "Debe contar con ambos espejos retrovisores funcionales y en buen estado de visibilidad",
+      "Solamente es obligatorio el espejo del lado izquierdo",
+      "No se requieren espejos si el casco es transparente",
+      "Se permite reemplazar los espejos por cámaras de celular desenfocadas"
+    ],
+    "correctAnswer": 0,
+    "category": "Normativa vial"
+  },
+  {
+    "id": 193,
+    "question": "¿Cuál es el límite máximo de velocidad permitido en carreteras nacionales/departamentales para motocicletas en Colombia (salvo señalización contraria)?",
+    "options": [
+      "90 km/h",
+      "120 km/h",
+      "140 km/h",
+      "50 km/h en todas las autopistas"
+    ],
+    "correctAnswer": 0,
+    "category": "Normativa vial"
+  },
+  {
+    "id": 194,
+    "question": "¿Está permitido realizar modificaciones al tubo de escape que generen ruido excesivo (resonadores/reparos sin silenciador)?",
+    "options": [
+      "No, está prohibido por las normas de emisión de ruido y tránsito",
+      "Sí, siempre y cuando la moto sea de color negro",
+      "Sí, si el conductor paga un impuesto adicional",
+      "Solamente si transita en autopistas de noche"
+    ],
+    "correctAnswer": 0,
+    "category": "Normativa vial"
+  },
+  {
+    "id": 195,
+    "question": "¿Qué sanción aplica por conducir en estado de embriaguez o bajo el efecto de sustancias psicoactivas?",
+    "options": [
+      "Multas severas (escalonadas según el grado), suspensión o cancelación de la licencia, inmovilización del vehículo y horas de trabajo comunitario",
+      "Pago de una tarifa fija de 50.000 pesos colombianos",
+      "Prisión domiciliaria de 24 horas únicamente",
+      "Ninguna sanción si es la primera vez en el año"
+    ],
+    "correctAnswer": 0,
+    "category": "Normativa vial"
+  },
+  {
+    "id": 196,
+    "question": "¿Qué debe hacer si el semáforo cambia a luz amarilla cuando usted está muy cerca de la línea de parada y no puede detenerse con seguridad?",
+    "options": [
+      "Completar el paso con precaución para despejar la intersección sin amarrar los frenos",
+      "Frenar en seco sobre la cebra peatonal",
+      "Apagar la moto en la mitad del cruce",
+      "Girar en U inmediatamente"
+    ],
+    "correctAnswer": 0,
+    "category": "Normativa vial"
+  },
+  {
+    "id": 197,
+    "question": "¿Cuál es el número de pasajeros máximo permitido en una motocicleta convencional de dos ruedas?",
+    "options": [
+      "Dos (2) personas: el conductor y un acompañante (pato)",
+      "Tres personas si una es un niño",
+      "Cuatro personas si van bien sujetas",
+      "Sin límite mientras la potencia del motor lo permita"
+    ],
+    "correctAnswer": 0,
+    "category": "Normativa vial"
+  },
+  {
+    "id": 198,
+    "question": "¿Qué entidad regula la homologación de los cascos de protección que se venden en Colombia?",
+    "options": [
+      "El Ministerio de Transporte a través de normas técnicas (NTC 4533, ECE 22.05 / 22.06, DOT)",
+      "La Secretaría de Salud Municipal",
+      "El Ministerio de Tecnologías de la Información",
+      "Las empresas ensambadoras de bicicletas"
+    ],
+    "correctAnswer": 0,
+    "category": "Normativa vial"
+  },
+  {
+    "id": 199,
+    "question": "¿Qué maniobra está prohibida respecto al uso de teléfonos celulares mientras se conduce motocicleta?",
+    "options": [
+      "Manipular o sostener el celular con la mano o hablar sin dispositivos de manos libres mientras se conduce",
+      "Llevar el teléfono guardado en la chaqueta",
+      "Utilizar sistemas de navegación GPS fijados al manubrio sin manipularlos en marcha",
+      "Escuchar las indicaciones del mapa mediante interconectores con voz sin distracción visual"
+    ],
+    "correctAnswer": 0,
+    "category": "Normativa vial"
+  },
+  {
+    "id": 200,
+    "question": "¿Qué plazo tiene un ciudadano para impugnar una orden de comparendo si no está de acuerdo con la infracción atribuida?",
+    "options": [
+      "Dentro de los cinco (5) días hábiles siguientes a la notificación (o 11 días hábiles si es por fotodetección) ante el organismo de tránsito",
+      "Un año después de la multa",
+      "Solamente el mismo día en que se elaboró el comparendo",
+      "No existe el derecho a la impugnación de comparendos en Colombia"
+    ],
+    "correctAnswer": 0,
+    "category": "Normativa vial"
   }
 ];
 
 /**
- * Helper function to generate an exam of random questions with exact module distribution:
+ * Utility function to get 40 randomly selected questions distributed proportionally across categories:
  * - 20% Mecánica (8 for 40)
  * - 30% Situaciones de conducción (12 for 40)
  * - 25% Infraestructura (10 for 40)
